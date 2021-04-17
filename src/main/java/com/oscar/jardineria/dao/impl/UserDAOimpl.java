@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 
@@ -18,12 +19,13 @@ public class UserDAOimpl implements UserDAO{
 	
 	@Autowired
 	private UserRepository userRepository;
-
+	
 	@Override
-	public List<UserDTO> obtenerUusariosporIdyNombre(Integer id, String nombre) {
-		
-		return  userRepository.buscarUsuario(id, nombre);
+	public List<UserDTO> obtenerUsuariosporIdyNombre(Integer id, String usuario, Integer dni, String direccion,
+			Integer telefono, String gmail, Integer famNumerosa) {
+		return  userRepository.buscarUsuario(id, usuario, dni, direccion, telefono, gmail, famNumerosa);
 	}
+
 
 	@Override
 	public Integer insertarUsuario(Integer id, String usuario, Integer password, Integer dni, String direccion,
@@ -60,5 +62,7 @@ public class UserDAOimpl implements UserDAO{
 			return false;
 		}
 	}
+
+
 
 }

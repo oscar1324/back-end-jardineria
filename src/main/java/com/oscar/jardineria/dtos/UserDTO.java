@@ -6,7 +6,7 @@ public class UserDTO {
 	private int dni;
 	private String direccion;
 	private int telefono;
-	private String gmail;
+	private String email;
 	private int famNumerosa;
 	private String usuario;
 	private int password;
@@ -18,14 +18,14 @@ public class UserDTO {
 	}
 	
 	
-	public UserDTO(int idUsuarios, int dni, String direccion, int telefono, String gmail, int famNumerosa,
+	public UserDTO(int idUsuarios, int dni, String direccion, int telefono, String email, int famNumerosa,
 			String usuario, int password) {
 		super();
 		this.idUsuarios = idUsuarios;
 		this.dni = dni;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.gmail = gmail;
+		this.email = email;
 		this.famNumerosa = famNumerosa;
 		this.usuario = usuario;
 		this.password = password;
@@ -55,11 +55,11 @@ public class UserDTO {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	public String getGmail() {
-		return gmail;
+	public String getEmail() {
+		return email;
 	}
-	public void setGmail(String gmail) {
-		this.gmail = gmail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public int getFamNumerosa() {
 		return famNumerosa;
