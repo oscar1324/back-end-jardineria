@@ -11,7 +11,7 @@ public class UserEntity {
 
 	@Id
 	@Column(name = "idUsuarios")
-	private int id;
+	private int idUsuarios;
 	
 	@Column(name = "dni")
 	private int dni;
@@ -34,44 +34,17 @@ public class UserEntity {
 	@Column(name = "password")
 	private int password;
 	
-	public UserEntity(int id) {
+	public UserEntity(int idUsuarios) {
 		super();
-		this.id = id;
+		this.idUsuarios = idUsuarios;
 	}
 
-	public UserEntity(int id, int dni, String direccion, int telefono, String email, int famNumerosa, String usuario,
-			int password) {
-		super();
-		this.id = id;
-		this.dni = dni;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.email = email;
-		this.famNumerosa = famNumerosa;
-		this.usuario = usuario;
-		this.password = password;
+	public int getIdUsuarios() {
+		return idUsuarios;
 	}
 
-
-
-	public UserEntity(Integer id2, Integer dni2, String direccion2, Integer telefono2, String email2, String usuario2,
-			Integer password2) {
-		super();
-		this.id = id;
-		this.dni = dni;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.email = email;
-		this.usuario = usuario;
-		this.password = password;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setIdUsuarios(int idUsuarios) {
+		this.idUsuarios = idUsuarios;
 	}
 
 	public int getDni() {
@@ -129,6 +102,33 @@ public class UserEntity {
 	public void setPassword(int password) {
 		this.password = password;
 	}
+
+	public UserEntity(int idUsuarios, int dni, String direccion, int telefono, String email, int famNumerosa,
+			String usuario, int password) {
+		super();
+		this.idUsuarios = idUsuarios;
+		this.dni = dni;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.email = email;
+		this.famNumerosa = famNumerosa;
+		this.usuario = usuario;
+		this.password = password;
+	}
+
+
+	public UserEntity(Integer idusuarios2, Integer dni2, String direccion2, Integer telefono2, String email2,
+			String usuario2, Integer password2) {
+		this.idUsuarios = idusuarios2;
+		this.dni = dni2;
+		this.direccion = direccion2;
+		this.telefono = telefono2;
+		this.email = email2;
+		this.usuario = usuario2;
+		this.password = password2;
+	}
+
+
 	
 	
 }

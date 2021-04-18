@@ -13,9 +13,9 @@ import java.util.List;
 @Repository
 public interface UserRepository  extends CrudRepository<UserEntity, Integer>{
 	
-	@Query(value = "select new com.oscar.jardineria.dtos.userDTO (u.idUsuarios, u.dni, u.direccion, u.telefono, u.email, u.fanNumerosa, u.usuario, u.password) "
+	@Query(value = "select new com.oscar.jardineria.dtos.UserDTO (u.idUsuarios, u.dni, u.direccion, u.telefono, u.email, u.famNumerosa, u.usuario, u.password) "
 			+ "FROM com.oscar.jardineria.entities.UserEntity u "
-			+ "WHERE u.idUsuarios LIKE CONCAT ('%', :id, '%') or :id is null "
+			+ "WHERE (u.idUsuarios LIKE CONCAT ('%', :idUsuarios, '%') or :idUsuarios is null) "
 			+ "AND u.dni LIKE CONCAT ('%', :dni, '%') "
 			+ "AND u.direccion LIKE CONCAT ('%', :direccion, '%') "
 			+ "AND u.telefono LIKE CONCAT ('%', :telefono, '%') "
@@ -23,7 +23,7 @@ public interface UserRepository  extends CrudRepository<UserEntity, Integer>{
 			+ "AND u.famNumerosa LIKE CONCAT ('%', :famNumerosa, '%') "
 			+ "AND u.usuario LIKE CONCAT ('%', :usuario, '%') "
 		)
-	List<UserDTO>buscarUsuario( @Param("idUsuarios") Integer id,
+	List<UserDTO>buscarUsuario( @Param("idUsuarios") Integer idUsuarios,
 								@Param("usuario" )String usuario,
 								@Param("dni") Integer dni,
 								@Param("direccion") String direccion,

@@ -20,30 +20,39 @@ public class UserDAOimpl implements UserDAO{
 	@Autowired
 	private UserRepository userRepository;
 	
+	
+
 	@Override
-	public List<UserDTO> obtenerUsuariosporIdyNombre(Integer id, String usuario, Integer dni, String direccion,
+	public List<UserDTO> obtenerUsuariosporIdyNombre(Integer idusuarios, String usuario, Integer dni, String direccion,
 			Integer telefono, String gmail, Integer famNumerosa) {
-		return  userRepository.buscarUsuario(id, usuario, dni, direccion, telefono, gmail, famNumerosa);
+
+		return  userRepository.buscarUsuario(idusuarios, usuario, dni, direccion, telefono, gmail, famNumerosa);
 	}
 
 
 	@Override
-	public Integer insertarUsuario(Integer id, String usuario, Integer password, Integer dni, String direccion,
+	public Integer insertarUsuario(Integer idusuarios, String usuario, Integer password, Integer dni, String direccion,
 			String email, Integer telefono, Integer famNumerosa) {
-		
+
 		famNumerosa = (famNumerosa == null)? 0 : 1;
-		UserEntity user = new UserEntity(id, dni, direccion, telefono, email, famNumerosa, usuario, password);
+		UserEntity user = new UserEntity(idusuarios, dni, direccion, telefono, email, famNumerosa, usuario, password);
 		userRepository.save(user);
-		return 1;
+		return null;
 	}
 
+
 	@Override
-	public Integer actualizarUsuario(Integer id, String usuario, Integer password, Integer dni, String direccion,
-			String email, Integer telefono) {
-		UserEntity user = new UserEntity(id, dni, direccion, telefono, email, usuario, password);
+	public Integer actualizarUsuario(Integer idusuarios, String usuario, Integer password, Integer dni,
+			String direccion, String email, Integer telefono) {
+
+		UserEntity user = new UserEntity(idusuarios, dni, direccion, telefono, email, usuario, password);
 		userRepository.save(user);
-		return 1;
+		return null;
 	}
+
+
+	
+
 
 	@Override
 	public Integer eliminarUsuario(Integer id) {
@@ -62,6 +71,8 @@ public class UserDAOimpl implements UserDAO{
 			return false;
 		}
 	}
+
+
 
 
 
