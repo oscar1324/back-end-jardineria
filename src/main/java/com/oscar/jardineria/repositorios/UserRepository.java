@@ -13,23 +13,23 @@ import java.util.List;
 @Repository
 public interface UserRepository  extends CrudRepository<UserEntity, Integer>{
 	
-	@Query(value = "select new com.oscar.jardineria.dtos.UserDTO (u.idUsuarios, u.dni, u.direccion, u.telefono, u.email, u.famNumerosa, u.usuario, u.password) "
+	@Query(value = "select new com.oscar.jardineria.dtos.UserDTO (u.username, u.password,u.enabled, u.nombre, u.apellido, u.direccion ) "
 			+ "FROM com.oscar.jardineria.entities.UserEntity u "
-			+ "WHERE (u.idUsuarios LIKE CONCAT ('%', :idUsuarios, '%') or :idUsuarios is null) "
-			+ "AND u.dni LIKE CONCAT ('%', :dni, '%') "
+			+ "WHERE (u.username LIKE CONCAT ('%', :username, '%') or :username is null) "
+			+ "AND u.password LIKE CONCAT ('%', :password, '%') "
+			+ "AND u.enabled LIKE CONCAT ('%', :enabled, '%') "
+			+ "AND u.nombre LIKE CONCAT ('%', :nombre, '%') "
+			+ "AND u.apellido LIKE CONCAT ('%', :apellido, '%') "
 			+ "AND u.direccion LIKE CONCAT ('%', :direccion, '%') "
-			+ "AND u.telefono LIKE CONCAT ('%', :telefono, '%') "
-			+ "AND u.email LIKE CONCAT ('%', :email, '%') "
-			+ "AND u.famNumerosa LIKE CONCAT ('%', :famNumerosa, '%') "
-			+ "AND u.usuario LIKE CONCAT ('%', :usuario, '%') "
+
 		)
-	List<UserDTO>buscarUsuario( @Param("idUsuarios") Integer idUsuarios,
-								@Param("usuario" )String usuario,
-								@Param("dni") Integer dni,
-								@Param("direccion") String direccion,
-								@Param("telefono") Integer telefono,
-								@Param("email") String email,
-								@Param("famNumerosa") Integer famNumerosa
+	List<UserDTO>buscarUsuario( @Param("username") String username,
+								@Param("password" )String password,
+								@Param("enabled") Integer enabled,
+								@Param("nombre") String nombre,
+								@Param("apellido") String apellido,
+								@Param("direccion") String direccion
+
 								);
 }
 

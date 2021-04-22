@@ -50,10 +50,10 @@ public class UsuarioController {
 		return userRepository.findAll();
 	}
 	
-	//Hacer por /usuarios/{id}, pasando por parametros eso
-	@GetMapping(value = "/usuarios/{idUsuarios}")
-	public Optional<UserEntity> listarUsuarioporID( @PathVariable("idUsuarios") Integer idUsuarios){
-		return userRepository.findById(idUsuarios);
+
+	@GetMapping(value = "/usuarios/{username}")
+	public Optional<UserEntity> listarUsuarioporID( @PathVariable("username") Integer username){
+		return userRepository.findById(username);
 	}
 	
 	
@@ -68,9 +68,9 @@ public class UsuarioController {
 	
 	// BORRAR -----------------------------------------------------------------------
 	
-	@DeleteMapping(value="/usuarios/{id}")
-	public ResponseEntity<String> borrarUsuario (@PathVariable("id") Integer id){
-		userRepository.deleteById(id);
+	@DeleteMapping(value="/usuarios/{username}")
+	public ResponseEntity<String> borrarUsuario (@PathVariable("username") Integer username){
+		userRepository.deleteById(username);
 		return new ResponseEntity<> ("Usuario borrado con exito", HttpStatus.OK);
 	}
 	

@@ -20,57 +20,45 @@ public class UserDAOimpl implements UserDAO{
 	@Autowired
 	private UserRepository userRepository;
 	
-	
+
+
 
 	@Override
-	public List<UserDTO> obtenerUsuariosporIdyNombre(Integer idusuarios, String usuario, Integer dni, String direccion,
-			Integer telefono, String gmail, Integer famNumerosa) {
-
-		return  userRepository.buscarUsuario(idusuarios, usuario, dni, direccion, telefono, gmail, famNumerosa);
+	public List<UserDTO> obtenerUsuariosporUsernameyTodo(String username, String password, Integer enabled,
+			String nombre, String apellido, String direccion) {
+		return userRepository.buscarUsuario(username, password, enabled, nombre, apellido, direccion);
+	
 	}
 
 
 	@Override
-	public Integer insertarUsuario(Integer idusuarios, String usuario, Integer password, Integer dni, String direccion,
-			String email, Integer telefono, Integer famNumerosa) {
-
-		famNumerosa = (famNumerosa == null)? 0 : 1;
-		UserEntity user = new UserEntity(idusuarios, dni, direccion, telefono, email, famNumerosa, usuario, password);
+	public Integer insertarUsuario(String username, String password, Integer enabled, String nombre, String apellido,
+			String direccion) {
+		UserEntity user = new UserEntity(username, password, enabled, nombre, apellido, direccion);
 		userRepository.save(user);
 		return null;
 	}
 
 
 	@Override
-	public Integer actualizarUsuario(Integer idusuarios, String usuario, Integer password, Integer dni,
-			String direccion, String email, Integer telefono) {
-
-		UserEntity user = new UserEntity(idusuarios, dni, direccion, telefono, email, usuario, password);
+	public Integer actualizarUsuario(String username, String password, Integer enabled, String nombre, String apellido,
+			String direccion) {
+		UserEntity user = new UserEntity(username, password, enabled, nombre, apellido, direccion);
 		userRepository.save(user);
 		return null;
 	}
-
-
 	
 
-
 	@Override
-	public Integer eliminarUsuario(Integer id) {
-		userRepository.deleteById(id);
+	public Integer eliminarUsuario(Integer username) {
+		userRepository.deleteById(username);
 		return 1;
 	}
 
-	@Override
-	public boolean familiaNumerosa(Integer id) {
-		Optional<UserEntity> a = userRepository.findById(id);
-		UserEntity user = a.get();
-		
-		if(user.getFamNumerosa() == 1) {
-			return true;
-		}else {
-			return false;
-		}
-	}
+
+
+
+
 
 
 

@@ -6,129 +6,108 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")  // Retocar
 public class UserEntity {
+	// Retocar todo
 
 	@Id
-	@Column(name = "idUsuarios")
-	private int idUsuarios;
+	@Column(name = "username")
+	private String username;
 	
-	@Column(name = "dni")
-	private int dni;
+	@Column(name = "password")
+	private String password;
+	
+	@Column(name = "enabled")
+	private Integer enabled;
+	
+	@Column(name = "nombre")
+	private String nombre;
+	
+	@Column(name = "apellido")
+	private String apellido;
 	
 	@Column(name = "direccion")
 	private String direccion;
 	
-	@Column(name = "telefono")
-	private int telefono;
 	
-	@Column(name = "email")
-	private String email;
-	
-	@Column(name = "FamNumerosa")
-	private int famNumerosa;
-	
-	@Column(name = "usuario")
-	private String usuario;
-	
-	@Column(name = "password")
-	private int password;
-	
-	public UserEntity(int idUsuarios) {
+	public UserEntity() {
 		super();
-		this.idUsuarios = idUsuarios;
 	}
 
-	public int getIdUsuarios() {
-		return idUsuarios;
+
+	public UserEntity(String username, String password, Integer enabled, String nombre, String apellido,
+			String direccion) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.direccion = direccion;
 	}
 
-	public void setIdUsuarios(int idUsuarios) {
-		this.idUsuarios = idUsuarios;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public int getDni() {
-		return dni;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public void setDni(int dni) {
-		this.dni = dni;
+
+	public String getPassword() {
+		return password;
 	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public Integer getEnabled() {
+		return enabled;
+	}
+
+
+	public void setEnabled(Integer enabled) {
+		this.enabled = enabled;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public String getApellido() {
+		return apellido;
+	}
+
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
 
 	public String getDireccion() {
 		return direccion;
 	}
 
+
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-
-	public int getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getFamNumerosa() {
-		return famNumerosa;
-	}
-
-	public void setFamNumerosa(int famNumerosa) {
-		this.famNumerosa = famNumerosa;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public int getPassword() {
-		return password;
-	}
-
-	public void setPassword(int password) {
-		this.password = password;
-	}
-
-	public UserEntity(int idUsuarios, int dni, String direccion, int telefono, String email, int famNumerosa,
-			String usuario, int password) {
-		super();
-		this.idUsuarios = idUsuarios;
-		this.dni = dni;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.email = email;
-		this.famNumerosa = famNumerosa;
-		this.usuario = usuario;
-		this.password = password;
-	}
-
-
-	public UserEntity(Integer idusuarios2, Integer dni2, String direccion2, Integer telefono2, String email2,
-			String usuario2, Integer password2) {
-		this.idUsuarios = idusuarios2;
-		this.dni = dni2;
-		this.direccion = direccion2;
-		this.telefono = telefono2;
-		this.email = email2;
-		this.usuario = usuario2;
-		this.password = password2;
-	}
-
-
 	
+	
+	
+
 	
 }
