@@ -2,35 +2,35 @@ package com.oscar.jardineria.dtos;
 
 public class DetallePresupuestoDTO {
 	
-	public int idDetallePresupuesto;
-	public int idPresupuesos;
-	public int idServicios; // Ver si puedo cambiarlo
+	public Integer idDetallePresupuesto;
+	public Integer idPresupuesos;
+	public Integer idServicios; // Ver si puedo cambiarlo
 	public DetallePresupuestoDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public DetallePresupuestoDTO(int idDetallePresupuesto, int idPresupuesos, int idServicios) {
+	public DetallePresupuestoDTO(Integer idDetallePresupuesto, Integer idPresupuesos, Integer idServicios) {
 		super();
 		this.idDetallePresupuesto = idDetallePresupuesto;
 		this.idPresupuesos = idPresupuesos;
 		this.idServicios = idServicios;
 	}
-	public int getIdDetallePresupuesto() {
+	public Integer getIdDetallePresupuesto() {
 		return idDetallePresupuesto;
 	}
-	public void setIdDetallePresupuesto(int idDetallePresupuesto) {
+	public void setIdDetallePresupuesto(Integer idDetallePresupuesto) {
 		this.idDetallePresupuesto = idDetallePresupuesto;
 	}
-	public int getIdPresupuesos() {
+	public Integer getIdPresupuesos() {
 		return idPresupuesos;
 	}
-	public void setIdPresupuesos(int idPresupuesos) {
+	public void setIdPresupuesos(Integer idPresupuesos) {
 		this.idPresupuesos = idPresupuesos;
 	}
-	public int getIdServicios() {
+	public Integer getIdServicios() {
 		return idServicios;
 	}
-	public void setIdServicios(int idServicios) {
+	public void setIdServicios(Integer idServicios) {
 		this.idServicios = idServicios;
 	}
 	

@@ -17,84 +17,87 @@ public class PresupuestosEntity {
 	@Column(name = "idPresupuestos")
 	private Integer idPresupuestos;
 	
+	// Conectar con users ----------------- PREGUNTAR --- Lo he cambiado a integer para probar pero es erroneo
+	@Column(name = "username")
+	private String username;
+	
 	@Column(name = "cantidadTerreno")
 	private Integer cantidadTerreno;
 	
 	@Column(name = "fechaPresupuesto")
-	private Date fechaPresupuesto;
-	
-	@Column(name = "animales")
-	private Integer animales;
+	private String fechaPresupuesto;
 	
 	@Column(name = "comentario")
 	private String comentario;
-	// Conectar con users
-	@Column(name = "username")
-	private String username;
+
 
 	public PresupuestosEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PresupuestosEntity(Integer idPresupuestos, Integer cantidadTerreno, Date fechaPresupuesto, Integer animales,
-			String comentario, String username) {
+
+	public PresupuestosEntity(Integer idPresupuestos, String username, Integer cantidadTerreno, String fechaPresupuesto,
+			String comentario) {
 		super();
 		this.idPresupuestos = idPresupuestos;
+		this.username = username;
 		this.cantidadTerreno = cantidadTerreno;
 		this.fechaPresupuesto = fechaPresupuesto;
-		this.animales = animales;
 		this.comentario = comentario;
-		this.username = username;
 	}
+
 
 	public Integer getIdPresupuestos() {
 		return idPresupuestos;
 	}
 
+
 	public void setIdPresupuestos(Integer idPresupuestos) {
 		this.idPresupuestos = idPresupuestos;
 	}
 
-	public Integer getCantidadTerreno() {
-		return cantidadTerreno;
-	}
-
-	public void setCantidadTerreno(Integer cantidadTerreno) {
-		this.cantidadTerreno = cantidadTerreno;
-	}
-
-	public Date getFechaPresupuesto() {
-		return fechaPresupuesto;
-	}
-
-	public void setFechaPresupuesto(Date fechaPresupuesto) {
-		this.fechaPresupuesto = fechaPresupuesto;
-	}
-
-	public Integer getAnimales() {
-		return animales;
-	}
-
-	public void setAnimales(Integer animales) {
-		this.animales = animales;
-	}
-
-	public String getComentario() {
-		return comentario;
-	}
-
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
-	}
 
 	public String getUsername() {
 		return username;
 	}
 
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+
+	public Integer getCantidadTerreno() {
+		return cantidadTerreno;
+	}
+
+
+	public void setCantidadTerreno(Integer cantidadTerreno) {
+		this.cantidadTerreno = cantidadTerreno;
+	}
+
+
+	public String getFechaPresupuesto() {
+		return fechaPresupuesto;
+	}
+
+
+	public void setFechaPresupuesto(String fechaPresupuesto) {
+		this.fechaPresupuesto = fechaPresupuesto;
+	}
+
+
+	public String getComentario() {
+		return comentario;
+	}
+
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+
+
 
 
 

@@ -47,14 +47,18 @@ public class UserDAOimpl implements UserDAO{
 		userRepository.save(user);
 		return null;
 	}
-	
+
 
 	@Override
-	public Integer eliminarUsuario(Integer username) {
+	public Integer eliminarUsuario(String username) {
 		userRepository.deleteById(username);
 		return 1;
 	}
+	
 
+
+
+	
 
 
 

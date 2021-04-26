@@ -1,15 +1,11 @@
 package com.oscar.jardineria.dtos;
 
-import java.util.Date;
-
 public class PresupuestosDTO {
 
-		public int idPresupuestos;
-		public int idUsuarios;
-		public int cantidadTerreno;
-		public int codigoPostal;
-		public Date fechaPresupuesto;
-		public int animales;
+		public Integer idPresupuestos;
+		public String username;
+		public Integer cantidadTerreno;
+		public String fechaPresupuesto;
 		public String comentario ;
 		
 		
@@ -19,76 +15,54 @@ public class PresupuestosDTO {
 		}
 
 
-		public PresupuestosDTO(int idPresupuestos, int idUsuarios, int cantidadTerreno, int codigoPostal,
-				Date fechaPresupuesto, int animales, String comentario) {
+		public PresupuestosDTO(Integer idPresupuestos, String username, Integer cantidadTerreno,
+				String fechaPresupuesto, String comentario) {
 			super();
 			this.idPresupuestos = idPresupuestos;
-			this.idUsuarios = idUsuarios;
+			this.username = username;
 			this.cantidadTerreno = cantidadTerreno;
-			this.codigoPostal = codigoPostal;
 			this.fechaPresupuesto = fechaPresupuesto;
-			this.animales = animales;
 			this.comentario = comentario;
 		}
 
 
-		public int getIdPresupuestos() {
+		public Integer getIdPresupuestos() {
 			return idPresupuestos;
 		}
 
 
-		public void setIdPresupuestos(int idPresupuestos) {
+		public void setIdPresupuestos(Integer idPresupuestos) {
 			this.idPresupuestos = idPresupuestos;
 		}
 
 
-		public int getIdUsuarios() {
-			return idUsuarios;
+		public String getUsername() {
+			return username;
 		}
 
 
-		public void setIdUsuarios(int idUsuarios) {
-			this.idUsuarios = idUsuarios;
+		public void setUsername(String username) {
+			this.username = username;
 		}
 
 
-		public int getCantidadTerreno() {
+		public Integer getCantidadTerreno() {
 			return cantidadTerreno;
 		}
 
 
-		public void setCantidadTerreno(int cantidadTerreno) {
+		public void setCantidadTerreno(Integer cantidadTerreno) {
 			this.cantidadTerreno = cantidadTerreno;
 		}
 
 
-		public int getCodigoPostal() {
-			return codigoPostal;
-		}
-
-
-		public void setCodigoPostal(int codigoPostal) {
-			this.codigoPostal = codigoPostal;
-		}
-
-
-		public Date getFechaPresupuesto() {
+		public String getFechaPresupuesto() {
 			return fechaPresupuesto;
 		}
 
 
-		public void setFechaPresupuesto(Date fechaPresupuesto) {
+		public void setFechaPresupuesto(String fechaPresupuesto) {
 			this.fechaPresupuesto = fechaPresupuesto;
-		}
-
-
-		public int getAnimales() {
-			return animales;
-		}
-
-
-		public void setAnimales(int animales) {
-			this.animales = animales;
 		}
 
 
@@ -100,9 +74,6 @@ public class PresupuestosDTO {
 		public void setComentario(String comentario) {
 			this.comentario = comentario;
 		}
-		
-		
-		
-		
-		
+
+	
 }

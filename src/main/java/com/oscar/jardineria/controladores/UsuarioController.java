@@ -52,11 +52,11 @@ public class UsuarioController {
 	
 
 	@GetMapping(value = "/usuarios/{username}")
-	public Optional<UserEntity> listarUsuarioporID( @PathVariable("username") Integer username){
+	public Optional<UserEntity> listarUsuarioporID( @PathVariable("username") String username){
 		return userRepository.findById(username);
 	}
 	
-	
+	// Revisar clave primaria
 	// ACTUALIZAR -----------------------------------------------------------------------
 	@PutMapping(value="/usuarios")
 	public ResponseEntity<String> actualizarUsuario( @RequestBody UserEntity user){
@@ -67,9 +67,8 @@ public class UsuarioController {
 	
 	
 	// BORRAR -----------------------------------------------------------------------
-	
 	@DeleteMapping(value="/usuarios/{username}")
-	public ResponseEntity<String> borrarUsuario (@PathVariable("username") Integer username){
+	public ResponseEntity<String> borrarUsuario (@PathVariable("username") String username){
 		userRepository.deleteById(username);
 		return new ResponseEntity<> ("Usuario borrado con exito", HttpStatus.OK);
 	}

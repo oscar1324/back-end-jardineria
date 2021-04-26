@@ -2,7 +2,7 @@ package com.oscar.jardineria.dtos;
 
 public class PedidosDTO {
 	
-	public int idPedidos;
+	public Integer idPedidos;
 	public String fechaPedido;
 	public String comentario;
 	public String username;
@@ -10,17 +10,17 @@ public class PedidosDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PedidosDTO(int idPedidos, String fechaPedido, String comentario, String username) {
+	public PedidosDTO(Integer idPedidos, String fechaPedido, String comentario, String username) {
 		super();
 		this.idPedidos = idPedidos;
 		this.fechaPedido = fechaPedido;
 		this.comentario = comentario;
 		this.username = username;
 	}
-	public int getIdPedidos() {
+	public Integer getIdPedidos() {
 		return idPedidos;
 	}
-	public void setIdPedidos(int idPedidos) {
+	public void setIdPedidos(Integer idPedidos) {
 		this.idPedidos = idPedidos;
 	}
 	public String getFechaPedido() {

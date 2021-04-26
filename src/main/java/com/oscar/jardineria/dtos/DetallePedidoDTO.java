@@ -2,38 +2,38 @@ package com.oscar.jardineria.dtos;
 
 public class DetallePedidoDTO {
 	
-	public int idDetallePedido;
-	public int idPedidos;
-	public int idServicios;
+	public Integer idDetallePedido;
+	public Integer idPedidos;
+	public Integer idServicios;
 	public DetallePedidoDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public DetallePedidoDTO(int idDetallePedido, int idPedidos, int idServicios) {
+	public DetallePedidoDTO(Integer idDetallePedido, Integer idPedidos, Integer idServicios) {
 		super();
 		this.idDetallePedido = idDetallePedido;
 		this.idPedidos = idPedidos;
 		this.idServicios = idServicios;
 	}
-	public int getIdDetallePedido() {
+	public Integer getIdDetallePedido() {
 		return idDetallePedido;
 	}
-	public void setIdDetallePedido(int idDetallePedido) {
+	public void setIdDetallePedido(Integer idDetallePedido) {
 		this.idDetallePedido = idDetallePedido;
 	}
-	public int getIdPedidos() {
+	public Integer getIdPedidos() {
 		return idPedidos;
 	}
-	public void setIdPedidos(int idPedidos) {
+	public void setIdPedidos(Integer idPedidos) {
 		this.idPedidos = idPedidos;
 	}
-	public int getIdServicios() {
+	public Integer getIdServicios() {
 		return idServicios;
 	}
-	public void setIdServicios(int idServicios) {
+	public void setIdServicios(Integer idServicios) {
 		this.idServicios = idServicios;
 	}
-	
+
 	
 
 }
