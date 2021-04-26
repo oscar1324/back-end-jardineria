@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 import com.oscar.jardineria.dtos.PedidosDTO;
 import com.oscar.jardineria.entities.PedidosEntity;
 
+/**
+ * @author Óscar Izquierdo
+ * Fichero que almacena la Query que obtiene todos los pedidos de la base de datos
+ */
+
 @Repository
 public interface PedidosRepository extends CrudRepository<PedidosEntity, Integer>{
 	

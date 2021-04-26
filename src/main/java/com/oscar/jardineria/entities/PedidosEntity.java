@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Óscar Izquierdo
+ * Entidad de la tabla pedidos de la base de datos jardineriasl
+ */
+
 @Entity
 @Table(name = "pedidos")
 public class PedidosEntity {

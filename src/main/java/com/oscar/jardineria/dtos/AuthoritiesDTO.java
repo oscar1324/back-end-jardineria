@@ -1,5 +1,10 @@
 package com.oscar.jardineria.dtos;
 
+/**
+ * @author Óscar Izquierdo
+ * Fichero donde se almacenan todos las variables de la autenticación
+ */
+
 public class AuthoritiesDTO {
 	
 	public String username;

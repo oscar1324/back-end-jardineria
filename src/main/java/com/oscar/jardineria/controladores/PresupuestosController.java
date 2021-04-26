@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.oscar.jardineria.entities.PresupuestosEntity;
 import com.oscar.jardineria.repositorios.PresupuestosRepository;
 
+/**
+ * @author Óscar Izquierdo
+ * Controller de los presupuestos
+ */
+
 @RestController
 @RequestMapping("/v3")
 public class PresupuestosController {

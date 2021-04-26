@@ -1,4 +1,8 @@
 package com.oscar.jardineria.dtos;
+/**
+ * @author Óscar Izquierdo
+ * Fichero donde se almacenan todos las variables de los usuarios
+ */
 
 public class UserDTO {
 	

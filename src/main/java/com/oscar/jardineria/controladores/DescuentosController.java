@@ -1,5 +1,4 @@
 package com.oscar.jardineria.controladores;
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oscar.jardineria.entities.DescuentosEntity;
 import com.oscar.jardineria.repositorios.DescuentosRepository;
+
+/**
+ * @author Óscar Izquierdo
+ * Controller de los descuentos
+ */
 
 @RestController
 @RequestMapping("/v4")

@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.oscar.jardineria.entities.PedidosEntity;
 import com.oscar.jardineria.repositorios.PedidosRepository;
 
+/**
+ * @author Óscar Izquierdo
+ * Controller de los pedidos
+ */
+
 @RestController
 @RequestMapping("/v8")
 public class PedidosController {

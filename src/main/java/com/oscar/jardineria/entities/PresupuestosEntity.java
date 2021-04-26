@@ -1,11 +1,16 @@
 package com.oscar.jardineria.entities;
 
-import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+/**
+ * @author Óscar Izquierdo
+ * Entidad de la tabla presupuestos de la base de datos jardineriasl
+ */
 
 @Entity
 @Table(name = "presupuestos")

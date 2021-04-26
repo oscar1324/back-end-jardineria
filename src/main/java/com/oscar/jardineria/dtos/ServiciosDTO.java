@@ -1,5 +1,11 @@
 package com.oscar.jardineria.dtos;
 
+/**
+ * @author Óscar Izquierdo
+ * Fichero donde se almacenan todos las variables de los servicios
+ */
+
+
 public class ServiciosDTO {
 
 	public Integer idServicios;

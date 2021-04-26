@@ -20,6 +20,12 @@ import com.oscar.jardineria.repositorios.UserRepository;
 
 import org.slf4j.Logger;
 
+
+/**
+ * @author Óscar Izquierdo
+ * Controller de los usuarios
+ */
+
 @RestController
 @RequestMapping("/v1")
 public class UsuarioController {

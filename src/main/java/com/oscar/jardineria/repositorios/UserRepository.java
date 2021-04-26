@@ -1,15 +1,20 @@
 package com.oscar.jardineria.repositorios;
 
 import org.springframework.data.jpa.repository.Query;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.oscar.jardineria.dtos.UserDTO;
-import com.oscar.jardineria.entities.ServiciosEntity;
 import com.oscar.jardineria.entities.UserEntity;
 
 import java.util.List;
+
+/**
+ * @author Óscar Izquierdo
+ * Fichero que almacena la Query que obtiene todos los usuarios de la base de datos
+ */
 
 @Repository
 public interface UserRepository extends CrudRepository<UserEntity, String> {

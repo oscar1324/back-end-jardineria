@@ -1,9 +1,19 @@
 package com.oscar.jardineria.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+
+/**
+ * @author Óscar Izquierdo
+ * Entidad de la tabla descuntos de la base de datos jardineriasl
+ */
 
 @Entity
 @Table( name = "descuentos")
@@ -13,8 +23,12 @@ public class DescuentosEntity {
 	@Column(name = "idDescuentos")
 	private Integer idDescuentos;
 	
-	@Column(name ="idServicios") // referenciar tabla
-	private Integer idServicios;
+//	@Column(name ="idServicios") // referenciar tabla
+//	private Integer idServicios;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "idServicios") 
+	private ServiciosEntity idServicios;
 	
 	@Column(name = "cantidad")
 	private Integer cantidad;
@@ -30,7 +44,7 @@ public class DescuentosEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DescuentosEntity(Integer idDescuentos, Integer idServicios, Integer cantidad, Integer descuento,
+	public DescuentosEntity(Integer idDescuentos, ServiciosEntity idServicios, Integer cantidad, Integer descuento,
 			String tipo) {
 		super();
 		this.idDescuentos = idDescuentos;
@@ -48,11 +62,11 @@ public class DescuentosEntity {
 		this.idDescuentos = idDescuentos;
 	}
 
-	public Integer getIdServicios() {
+	public ServiciosEntity getIdServicios() {
 		return idServicios;
 	}
 
-	public void setIdServicios(Integer idServicios) {
+	public void setIdServicios(ServiciosEntity idServicios) {
 		this.idServicios = idServicios;
 	}
 
@@ -80,7 +94,7 @@ public class DescuentosEntity {
 		this.tipo = tipo;
 	}
 	
-	
+
 	
 
 }

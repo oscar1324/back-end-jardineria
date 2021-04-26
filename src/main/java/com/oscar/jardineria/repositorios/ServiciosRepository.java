@@ -1,8 +1,11 @@
 package com.oscar.jardineria.repositorios;
 
 import org.springframework.data.jpa.repository.Query;
+
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,6 +13,11 @@ import com.oscar.jardineria.dtos.ServiciosDTO;
 import com.oscar.jardineria.entities.ServiciosEntity;
 
 
+/**
+ * @author Óscar Izquierdo
+ * Fichero que almacena la Query que obtiene todos los servicios de la base de datos
+ */
+@Repository
 public interface ServiciosRepository extends CrudRepository<ServiciosEntity, Integer> {
 	
 	@Query(value = "select new com.oscar.jardineria.dtos.ServiciosDTO (s.idServicios, s.descripcionServicio, s.precioMetro) "
