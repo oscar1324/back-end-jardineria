@@ -2,9 +2,13 @@ package com.oscar.jardineria.entities;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,9 +26,9 @@ public class PresupuestosEntity {
 	@Column(name = "idPresupuestos")
 	private Integer idPresupuestos;
 	
-	// Conectar con users ----------------- PREGUNTAR --- Lo he cambiado a integer para probar pero es erroneo
-	@Column(name = "username")
-	private String username;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "username") 
+	private UserEntity username;
 	
 	@Column(name = "cantidadTerreno")
 	private Integer cantidadTerreno;
@@ -42,8 +46,8 @@ public class PresupuestosEntity {
 	}
 
 
-	public PresupuestosEntity(Integer idPresupuestos, String username, Integer cantidadTerreno, String fechaPresupuesto,
-			String comentario) {
+	public PresupuestosEntity(Integer idPresupuestos, UserEntity username, Integer cantidadTerreno,
+			String fechaPresupuesto, String comentario) {
 		super();
 		this.idPresupuestos = idPresupuestos;
 		this.username = username;
@@ -51,6 +55,7 @@ public class PresupuestosEntity {
 		this.fechaPresupuesto = fechaPresupuesto;
 		this.comentario = comentario;
 	}
+
 
 
 	public Integer getIdPresupuestos() {
@@ -63,12 +68,12 @@ public class PresupuestosEntity {
 	}
 
 
-	public String getUsername() {
+	public UserEntity getUsername() {
 		return username;
 	}
 
 
-	public void setUsername(String username) {
+	public void setUsername(UserEntity username) {
 		this.username = username;
 	}
 
@@ -101,7 +106,6 @@ public class PresupuestosEntity {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-
 
 
 

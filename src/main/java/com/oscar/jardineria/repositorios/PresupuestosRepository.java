@@ -18,10 +18,10 @@ import java.util.List;
 @Repository
 public interface PresupuestosRepository extends CrudRepository<PresupuestosEntity, Integer>{
 	
-	@Query( value =" select new com.oscar.jardineria.dtos.PresupuestosDTO (p.idPresupuestos, p.username, p.cantidadTerreno, p.fechaPresupuesto, p.comentario) "
-			+"FROM com.oscar.jardineria.entities.PresupuestosEntity p "
+	@Query( value =" select new com.oscar.jardineria.dtos.PresupuestosDTO (p.idPresupuestos, u.username, p.cantidadTerreno, p.fechaPresupuesto, p.comentario) "
+			+"FROM com.oscar.jardineria.entities.PresupuestosEntity p JOIN com.oscar.jardineria.entities.UserEntity u ON p.idPresupuestos = u.username "
 			+"WHERE (p.idPresupuestos LIKE CONCAT ('%', :idPresupuestos, '%') or :idPresupuestos is null) "
-			+"AND p.username LIKE CONCAT ('%', :username, '%') "
+			+"AND u.username LIKE CONCAT ('%', :username, '%') "
 			+"AND p.cantidadTerreno LIKE CONCAT ('%', :cantidadTerreno, '%') "
 			+"AND p.fechaPresupuesto LIKE CONCAT ('%', :fechaPresupuesto, '%') "
 			+"AND p.comentario LIKE CONCAT ('%', :comentario, '%') "
