@@ -16,21 +16,21 @@ public class DescuentosDAOimpl implements DescuentosDAO{
 	private DescuentosRepository descuentosRepository;
 
 	@Override
-	public List<PresupuestosDTO> obtenerDescuentos(Integer idDescuentos, Integer idServicios, Integer cantidad,
+	public List<PresupuestosDTO> obtenerDescuentos(Integer idDescuentos, Integer cantidad,
 			Integer descuento, String tipo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Integer insertarDescuentos(Integer idDescuentos, Integer idServicios, Integer cantidad, Integer descuento,
+	public Integer insertarDescuentos(Integer idDescuentos, Integer cantidad, Integer descuento,
 			String tipo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Integer actualizarDescuentos(Integer idDescuentos, Integer idServicios, Integer cantidad, Integer descuento,
+	public Integer actualizarDescuentos(Integer idDescuentos, Integer cantidad, Integer descuento,
 			String tipo) {
 		// TODO Auto-generated method stub
 		return null;

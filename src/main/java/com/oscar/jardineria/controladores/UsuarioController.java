@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
-import com.oscar.jardineria.daos.UserDAO;
 import com.oscar.jardineria.entities.UserEntity;
 import com.oscar.jardineria.repositorios.UserRepository;
 
-import org.slf4j.Logger;
 
 
 /**

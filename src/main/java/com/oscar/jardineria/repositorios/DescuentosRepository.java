@@ -17,10 +17,9 @@ import com.oscar.jardineria.entities.DescuentosEntity;
 @Repository
 public interface DescuentosRepository  extends CrudRepository<DescuentosEntity, Integer>{
 	
-	@Query(value = "select new com.oscar.jardineria.dtos.DescuentosDTO (d.idDescuentos ,s.idServicios,  d.cantidad, d.descuento, d.tipo) "
-			+ "FROM com.oscar.jardineria.entities.DescuentosEntity d JOIN com.oscar.jardineria.entities.ServiciosEntity s ON s.idServicios = d.idDescuentos "
+	@Query(value = "select new com.oscar.jardineria.dtos.DescuentosDTO (d.idDescuentos , d.cantidad, d.descuento, d.tipo) "
+			+ "FROM com.oscar.jardineria.entities.DescuentosEntity d "
 			+ "WHERE (d.idDescuentos LIKE CONCAT ('%', :idDescuentos, '%') or :idDescuentos is null) "
-			+ "AND s.idServicios LIKE CONCAT ('%', :idServicios, '%') "
 			+ "AND d.cantidad LIKE CONCAT ('%', :cantidad, '%') "
 			+ "AND d.descuento LIKE CONCAT ('%', :descuento, '%') "
 			+ "AND d.tipo LIKE CONCAT ('%', :tipo, '%') "
@@ -28,7 +27,6 @@ public interface DescuentosRepository  extends CrudRepository<DescuentosEntity, 
 	
 	List<DescuentosDTO>buscarDescuento( 
 			@Param("idDescuentos") Integer idDescuentos,
-			@Param("idServicios" )Integer idServicios,
 			@Param("cantidad") Integer cantidad,
 			@Param("descuento") Integer descuento,
 			@Param("tipo") String tipo

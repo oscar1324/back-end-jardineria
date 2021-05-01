@@ -23,7 +23,7 @@ import com.oscar.jardineria.repositorios.PedidosRepository;
  */
 
 @RestController
-@RequestMapping("/v8")
+@RequestMapping("/v1")
 public class PedidosController {
 	
 	@Autowired

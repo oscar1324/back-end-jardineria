@@ -22,7 +22,7 @@ import com.oscar.jardineria.repositorios.DescuentosRepository;
  */
 
 @RestController
-@RequestMapping("/v4")
+@RequestMapping("/v1")
 public class DescuentosController {
 
 	@Autowired

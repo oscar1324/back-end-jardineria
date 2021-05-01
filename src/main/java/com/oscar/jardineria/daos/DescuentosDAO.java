@@ -6,9 +6,9 @@ import com.oscar.jardineria.dtos.PresupuestosDTO;
 public interface DescuentosDAO {
 	
 	
-	List<PresupuestosDTO> obtenerDescuentos(Integer idDescuentos,Integer idServicios,Integer cantidad, Integer descuento, String tipo);
-	Integer insertarDescuentos(Integer idDescuentos,Integer idServicios,Integer cantidad, Integer descuento, String tipo);
-	Integer actualizarDescuentos(Integer idDescuentos,Integer idServicios,Integer cantidad, Integer descuento, String tipo);
+	List<PresupuestosDTO> obtenerDescuentos(Integer idDescuentos,Integer cantidad, Integer descuento, String tipo);
+	Integer insertarDescuentos(Integer idDescuentos, Integer cantidad, Integer descuento, String tipo);
+	Integer actualizarDescuentos(Integer idDescuentos,Integer cantidad, Integer descuento, String tipo);
 	Integer eliminarDescuentos(Integer idDescuentos);
 
 

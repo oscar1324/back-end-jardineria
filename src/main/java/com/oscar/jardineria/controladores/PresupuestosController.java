@@ -23,7 +23,7 @@ import com.oscar.jardineria.repositorios.PresupuestosRepository;
  */
 
 @RestController
-@RequestMapping("/v3")
+@RequestMapping("/v1")
 public class PresupuestosController {
 	
 	@Autowired

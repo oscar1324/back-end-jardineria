@@ -9,7 +9,6 @@ public class DescuentosDTO {
 
 	
 	public Integer idDescuentos;
-	public Integer idServicios;
 	public Integer cantidad;
 	public Integer descuento;
 	public String tipo;
@@ -17,10 +16,9 @@ public class DescuentosDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public DescuentosDTO(Integer idDescuentos, Integer idServicios, Integer cantidad, Integer descuento, String tipo) {
+	public DescuentosDTO(Integer idDescuentos, Integer cantidad, Integer descuento, String tipo) {
 		super();
 		this.idDescuentos = idDescuentos;
-		this.idServicios = idServicios;
 		this.cantidad = cantidad;
 		this.descuento = descuento;
 		this.tipo = tipo;
@@ -30,12 +28,6 @@ public class DescuentosDTO {
 	}
 	public void setIdDescuentos(Integer idDescuentos) {
 		this.idDescuentos = idDescuentos;
-	}
-	public Integer getIdServicios() {
-		return idServicios;
-	}
-	public void setIdServicios(Integer idServicios) {
-		this.idServicios = idServicios;
 	}
 	public Integer getCantidad() {
 		return cantidad;

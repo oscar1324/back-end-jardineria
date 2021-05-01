@@ -14,19 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oscar.jardineria.daos.ServiciosDAO;
 import com.oscar.jardineria.entities.ServiciosEntity;
 import com.oscar.jardineria.repositorios.ServiciosRepository;
 
 @RestController
-@RequestMapping("/v2")
+@RequestMapping("/v1")
 public class ServiciosController {
 	
 	@Autowired
 	private ServiciosRepository serviciosRepository;
-	
-	@Autowired
-	private ServiciosDAO servicioDAO;
 	
 	
 	// INSERTAR -----------------------------------------------------------------------

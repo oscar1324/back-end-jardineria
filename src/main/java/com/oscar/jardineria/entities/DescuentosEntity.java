@@ -23,12 +23,6 @@ public class DescuentosEntity {
 	@Column(name = "idDescuentos")
 	private Integer idDescuentos;
 	
-//	@Column(name ="idServicios") // referenciar tabla
-//	private Integer idServicios;
-	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "idServicios") 
-	private ServiciosEntity idServicios;
 	
 	@Column(name = "cantidad")
 	private Integer cantidad;
@@ -44,11 +38,9 @@ public class DescuentosEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DescuentosEntity(Integer idDescuentos, ServiciosEntity idServicios, Integer cantidad, Integer descuento,
-			String tipo) {
+	public DescuentosEntity(Integer idDescuentos, Integer cantidad, Integer descuento, String tipo) {
 		super();
 		this.idDescuentos = idDescuentos;
-		this.idServicios = idServicios;
 		this.cantidad = cantidad;
 		this.descuento = descuento;
 		this.tipo = tipo;
@@ -60,14 +52,6 @@ public class DescuentosEntity {
 
 	public void setIdDescuentos(Integer idDescuentos) {
 		this.idDescuentos = idDescuentos;
-	}
-
-	public ServiciosEntity getIdServicios() {
-		return idServicios;
-	}
-
-	public void setIdServicios(ServiciosEntity idServicios) {
-		this.idServicios = idServicios;
 	}
 
 	public Integer getCantidad() {
