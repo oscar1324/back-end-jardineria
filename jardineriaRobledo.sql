@@ -3,7 +3,9 @@
 -- Host: 127.0.0.1    Database: jardinrobledo
 -- ------------------------------------------------------
 -- Server version	8.0.19
-
+drop database if exists jardinrobledo;
+create database jardinrobledo;
+use jardinrobledo;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -18,9 +20,7 @@
 --
 -- Table structure for table `authorities`
 --
-drop database if exists jardinrobledo;
-create database jardinrobledo;
-use jardinrobledo;
+
 DROP TABLE IF EXISTS `authorities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -52,8 +52,6 @@ CREATE TABLE `pedidos` (
   `idPedidos` int NOT NULL AUTO_INCREMENT,
   `fechaPedido` varchar(45) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
-  `id_pedidos` int NOT NULL,
-  `fecha_pedido` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idPedidos`),
   KEY `username_idx` (`username`),
   CONSTRAINT `username_pe` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
@@ -66,34 +64,8 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (1,'2020-02-02','Alba_Muri',0,NULL),(2,'2021-02-02','Alba_Muri',0,NULL);
+INSERT INTO `pedidos` VALUES (1,'2020-02-02','Alba_Muri'),(2,'2021-02-02','Alba_Muri');
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `presupuestos`
---
-
-DROP TABLE IF EXISTS `presupuestos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `presupuestos` (
-  `id_presupuestos` int NOT NULL,
-  `cantidad_terreno` int DEFAULT NULL,
-  `comentario` varchar(255) DEFAULT NULL,
-  `fecha_presupuesto` varchar(255) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_presupuestos`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `presupuestos`
---
-
-LOCK TABLES `presupuestos` WRITE;
-/*!40000 ALTER TABLE `presupuestos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `presupuestos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -133,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-02 15:39:57
+-- Dump completed on 2021-05-02 17:04:13
