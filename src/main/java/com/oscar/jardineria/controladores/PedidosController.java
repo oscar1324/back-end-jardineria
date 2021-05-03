@@ -60,7 +60,7 @@ public class PedidosController {
 	// BORRAR -----------------------------------------------------------------------
 	
 	@DeleteMapping(value="/pedidos/{id_pedidos}")
-	public ResponseEntity<String> borrarUsuario (@PathVariable("id_pedidos") Integer id_pedidos){
+	public ResponseEntity<String> borrarPedido(@PathVariable("id_pedidos") Integer id_pedidos){
 		pedidosRepository.deleteById(id_pedidos);
 		return new ResponseEntity<> ("Pedido borrado con exito", HttpStatus.OK);
 	}

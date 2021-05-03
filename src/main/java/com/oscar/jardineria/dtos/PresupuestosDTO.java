@@ -7,10 +7,10 @@ package com.oscar.jardineria.dtos;
 
 public class PresupuestosDTO {
 
-		public Integer idPresupuestos;
+		public Integer id_presupuestos;
 		public String username;
-		public Integer cantidadTerreno;
-		public String fechaPresupuesto;
+		public Integer cantidad_terreno;
+		public String fecha_presupuesto;
 		public String comentario ;
 		
 		
@@ -20,24 +20,24 @@ public class PresupuestosDTO {
 		}
 
 
-		public PresupuestosDTO(Integer idPresupuestos, String username, Integer cantidadTerreno,
-				String fechaPresupuesto, String comentario) {
+		public PresupuestosDTO(Integer id_presupuestos, String username, Integer cantidad_terreno,
+				String fecha_presupuesto, String comentario) {
 			super();
-			this.idPresupuestos = idPresupuestos;
+			this.id_presupuestos = id_presupuestos;
 			this.username = username;
-			this.cantidadTerreno = cantidadTerreno;
-			this.fechaPresupuesto = fechaPresupuesto;
+			this.cantidad_terreno = cantidad_terreno;
+			this.fecha_presupuesto = fecha_presupuesto;
 			this.comentario = comentario;
 		}
 
 
-		public Integer getIdPresupuestos() {
-			return idPresupuestos;
+		public Integer getId_presupuestos() {
+			return id_presupuestos;
 		}
 
 
-		public void setIdPresupuestos(Integer idPresupuestos) {
-			this.idPresupuestos = idPresupuestos;
+		public void setId_presupuestos(Integer id_presupuestos) {
+			this.id_presupuestos = id_presupuestos;
 		}
 
 
@@ -51,23 +51,23 @@ public class PresupuestosDTO {
 		}
 
 
-		public Integer getCantidadTerreno() {
-			return cantidadTerreno;
+		public Integer getCantidad_terreno() {
+			return cantidad_terreno;
 		}
 
 
-		public void setCantidadTerreno(Integer cantidadTerreno) {
-			this.cantidadTerreno = cantidadTerreno;
+		public void setCantidad_terreno(Integer cantidad_terreno) {
+			this.cantidad_terreno = cantidad_terreno;
 		}
 
 
-		public String getFechaPresupuesto() {
-			return fechaPresupuesto;
+		public String getFecha_presupuesto() {
+			return fecha_presupuesto;
 		}
 
 
-		public void setFechaPresupuesto(String fechaPresupuesto) {
-			this.fechaPresupuesto = fechaPresupuesto;
+		public void setFecha_presupuesto(String fecha_presupuesto) {
+			this.fecha_presupuesto = fecha_presupuesto;
 		}
 
 
