@@ -8,44 +8,44 @@ package com.oscar.jardineria.dtos;
 public class DescuentosDTO {
 
 	
-	public Integer idDescuentos;
+	public Integer id_descuentos;
 	public Integer cantidad;
 	public Integer descuento;
-	public String tipo;
+
 	public DescuentosDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public DescuentosDTO(Integer idDescuentos, Integer cantidad, Integer descuento, String tipo) {
+
+	public DescuentosDTO(Integer id_descuentos, Integer cantidad, Integer descuento) {
 		super();
-		this.idDescuentos = idDescuentos;
+		this.id_descuentos = id_descuentos;
 		this.cantidad = cantidad;
 		this.descuento = descuento;
-		this.tipo = tipo;
 	}
-	public Integer getIdDescuentos() {
-		return idDescuentos;
+
+	public Integer getId_descuentos() {
+		return id_descuentos;
 	}
-	public void setIdDescuentos(Integer idDescuentos) {
-		this.idDescuentos = idDescuentos;
+
+	public void setId_descuentos(Integer id_descuentos) {
+		this.id_descuentos = id_descuentos;
 	}
+
 	public Integer getCantidad() {
 		return cantidad;
 	}
+
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
+
 	public Integer getDescuento() {
 		return descuento;
 	}
+
 	public void setDescuento(Integer descuento) {
 		this.descuento = descuento;
-	}
-	public String getTipo() {
-		return tipo;
-	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
 	}
 
 	
