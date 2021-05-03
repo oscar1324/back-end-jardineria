@@ -7,30 +7,30 @@ package com.oscar.jardineria.dtos;
 
 public class PedidosDTO {
 	
-	public Integer idPedidos;
-	public String fechaPedido;
+	public Integer id_pedidos;
+	public String fecha_pedido;
 	public String username;
 	public PedidosDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PedidosDTO(Integer idPedidos, String fechaPedido, String username) {
+	public PedidosDTO(Integer id_pedidos, String fecha_pedido, String username) {
 		super();
-		this.idPedidos = idPedidos;
-		this.fechaPedido = fechaPedido;
+		this.id_pedidos = id_pedidos;
+		this.fecha_pedido = fecha_pedido;
 		this.username = username;
 	}
-	public Integer getIdPedidos() {
-		return idPedidos;
+	public Integer getId_pedidos() {
+		return id_pedidos;
 	}
-	public void setIdPedidos(Integer idPedidos) {
-		this.idPedidos = idPedidos;
+	public void setId_pedidos(Integer id_pedidos) {
+		this.id_pedidos = id_pedidos;
 	}
-	public String getFechaPedido() {
-		return fechaPedido;
+	public String getFecha_pedido() {
+		return fecha_pedido;
 	}
-	public void setFechaPedido(String fechaPedido) {
-		this.fechaPedido = fechaPedido;
+	public void setFecha_pedido(String fecha_pedido) {
+		this.fecha_pedido = fecha_pedido;
 	}
 	public String getUsername() {
 		return username;

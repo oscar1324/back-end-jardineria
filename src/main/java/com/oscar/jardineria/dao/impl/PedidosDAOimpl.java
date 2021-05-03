@@ -19,29 +19,29 @@ public class PedidosDAOimpl implements PedidosDAO{
 	
 
 	@Override
-	public List<PedidosDTO> obtenerPedidos(Integer idPedidos, String fechaPedido, String username) {
+	public List<PedidosDTO> obtenerPedidos(Integer id_pedidos, String fecha_pedido, String username) {
 		
-		return pedidosRepository.buscarPedidos(idPedidos, fechaPedido, username);
+		return pedidosRepository.buscarPedidos(id_pedidos, fecha_pedido, username);
 	}
 
 	@Override
-	public Integer insertarPedido(Integer idPedidos, String fechaPedido, String username) {
+	public Integer insertarPedido(Integer id_pedidos, String fecha_pedido, String username) {
 		
-		PedidosEntity pedidos = new PedidosEntity(idPedidos, fechaPedido, username);
+		PedidosEntity pedidos = new PedidosEntity(id_pedidos, fecha_pedido, username);
 		pedidosRepository.save(pedidos);
 		return null;
 	}
 
 	@Override
-	public Integer actualizarPedido(Integer idPedidos, String fechaPedido, String username) {
-		PedidosEntity pedidos = new PedidosEntity(idPedidos, fechaPedido, username);
+	public Integer actualizarPedido(Integer id_pedidos, String fecha_pedido, String username) {
+		PedidosEntity pedidos = new PedidosEntity(id_pedidos, fecha_pedido, username);
 		pedidosRepository.save(pedidos);
 		return null;
 	}
 
 	@Override
-	public Integer eliminarPedido(Integer idPedidos) {
-		pedidosRepository.deleteById(idPedidos);
+	public Integer eliminarPedido(Integer id_pedidos) {
+		pedidosRepository.deleteById(id_pedidos);
 		return 1;
 	}
 

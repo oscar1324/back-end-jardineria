@@ -18,16 +18,16 @@ import com.oscar.jardineria.entities.PedidosEntity;
 @Repository
 public interface PedidosRepository extends CrudRepository<PedidosEntity, Integer>{
 	
-	@Query (value = "select new com.oscar.jardineria.dtos.PedidosDTO (p.idPedidos, p.fechaPedido, p.username) "
+	@Query (value = "select new com.oscar.jardineria.dtos.PedidosDTO (p.id_pedidos, p.fecha_pedido, p.username) "
 			+ "FROM com.oscar.jardineria.entities.PedidosEntity p "
-			+ "WHERE (p.idPedidos LIKE CONCAT ('%', :idPedidos, '%') or :idPedidos is null) "
-			+ "AND p.fechaPedido LIKE CONCAT ('%', :fechaPedido, '%') "
+			+ "WHERE (p.id_pedidos LIKE CONCAT ('%', :id_pedidos, '%') or :id_pedidos is null) "
+			+ "AND p.fecha_pedido LIKE CONCAT ('%', :fecha_pedido, '%') "
 			+ "AND p.username LIKE CONCAT ('%', :username, '%') "
 			)
 	
 	List<PedidosDTO> buscarPedidos(
-									@Param("idPedidos") Integer idPedidos,
-									@Param("fechaPedido") String fechaPedido,
+									@Param("id_pedidos") Integer id_pedidos,
+									@Param("fecha_pedido") String fecha_pedido,
 									@Param("username") String username
 									);
 							

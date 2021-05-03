@@ -6,9 +6,9 @@ import com.oscar.jardineria.dtos.PedidosDTO;
 
 public interface PedidosDAO {
 	
-	List<PedidosDTO> obtenerPedidos(Integer idPedidos, String fechaPedido, String username);
-	Integer insertarPedido(Integer idPedidos, String fechaPedido, String username);
-	Integer actualizarPedido(Integer idPedidos, String fechaPedido, String username);
-	Integer eliminarPedido(Integer idPedidos);
+	List<PedidosDTO> obtenerPedidos(Integer id_pedidos, String fecha_pedido, String username);
+	Integer insertarPedido(Integer id_pedidos, String fecha_pedido, String username);
+	Integer actualizarPedido(Integer id_pedidos, String fecha_pedido, String username);
+	Integer eliminarPedido(Integer id_pedidos);
 
 }

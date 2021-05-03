@@ -43,9 +43,9 @@ public class PedidosController {
 		return pedidosRepository.findAll();
 	}
 	
-	@GetMapping(value = "/pedidos/{idPedidos}")
-	public Optional<PedidosEntity> listarUsuarioporID( @PathVariable("idPedidos") Integer idPedidos){
-		return pedidosRepository.findById(idPedidos);
+	@GetMapping(value = "/pedidos/{id_pedidos}")
+	public Optional<PedidosEntity> listarUsuarioporID( @PathVariable("id_pedidos") Integer id_pedidos){
+		return pedidosRepository.findById(id_pedidos);
 	}
 	
 	
@@ -59,9 +59,9 @@ public class PedidosController {
 	
 	// BORRAR -----------------------------------------------------------------------
 	
-	@DeleteMapping(value="/pedidos/{idServicio}")
-	public ResponseEntity<String> borrarUsuario (@PathVariable("idServicio") Integer idServicio){
-		pedidosRepository.deleteById(idServicio);
+	@DeleteMapping(value="/pedidos/{id_pedidos}")
+	public ResponseEntity<String> borrarUsuario (@PathVariable("id_pedidos") Integer id_pedidos){
+		pedidosRepository.deleteById(id_pedidos);
 		return new ResponseEntity<> ("Pedido borrado con exito", HttpStatus.OK);
 	}
 
