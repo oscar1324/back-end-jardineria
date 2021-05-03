@@ -8,9 +8,9 @@ package com.oscar.jardineria.dtos;
 
 public class ServiciosDTO {
 
-	public Integer idServicios;
-	public String descripcionServicio;
-	public Integer precioMetro;
+	public Integer id_servicios;
+	public String descripcion_servicio;
+	public Integer precio_metro;
 	
 	
 	public ServiciosDTO() {
@@ -19,42 +19,42 @@ public class ServiciosDTO {
 	}
 
 
-	public ServiciosDTO(Integer idServicios, String descripcionServicio, Integer precioMetro) {
+	public ServiciosDTO(Integer id_servicios, String descripcion_servicio, Integer precio_metro) {
 		super();
-		this.idServicios = idServicios;
-		this.descripcionServicio = descripcionServicio;
-		this.precioMetro = precioMetro;
+		this.id_servicios = id_servicios;
+		this.descripcion_servicio = descripcion_servicio;
+		this.precio_metro = precio_metro;
 	}
 
 
-	public Integer getIdServicios() {
-		return idServicios;
+	public Integer getId_servicios() {
+		return id_servicios;
 	}
 
 
-	public void setIdServicios(Integer idServicios) {
-		this.idServicios = idServicios;
+	public void setId_servicios(Integer id_servicios) {
+		this.id_servicios = id_servicios;
 	}
 
 
-	public String getDescripcionServicio() {
-		return descripcionServicio;
+	public String getDescripcion_servicio() {
+		return descripcion_servicio;
 	}
 
 
-	public void setDescripcionServicio(String descripcionServicio) {
-		this.descripcionServicio = descripcionServicio;
+	public void setDescripcion_servicio(String descripcion_servicio) {
+		this.descripcion_servicio = descripcion_servicio;
 	}
 
 
-	public Integer getPrecioMetro() {
-		return precioMetro;
+	public Integer getPrecio_metro() {
+		return precio_metro;
 	}
 
 
-	public void setPrecioMetro(Integer precioMetro) {
-		this.precioMetro = precioMetro;
+	public void setPrecio_metro(Integer precio_metro) {
+		this.precio_metro = precio_metro;
 	}
-	
+
 	
 }
