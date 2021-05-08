@@ -12,6 +12,7 @@ public class PresupuestosDTO {
 		public Integer cantidad_terreno;
 		public String fecha_presupuesto;
 		public String comentario ;
+		public Integer disabled;
 		
 		
 		public PresupuestosDTO() {
@@ -21,13 +22,14 @@ public class PresupuestosDTO {
 
 
 		public PresupuestosDTO(Integer id_presupuestos, String username, Integer cantidad_terreno,
-				String fecha_presupuesto, String comentario) {
+				String fecha_presupuesto, String comentario, Integer disabled) {
 			super();
 			this.id_presupuestos = id_presupuestos;
 			this.username = username;
 			this.cantidad_terreno = cantidad_terreno;
 			this.fecha_presupuesto = fecha_presupuesto;
 			this.comentario = comentario;
+			this.disabled = disabled;
 		}
 
 
@@ -80,5 +82,16 @@ public class PresupuestosDTO {
 			this.comentario = comentario;
 		}
 
-	
+
+		public Integer getDisabled() {
+			return disabled;
+		}
+
+
+		public void setDisabled(Integer disabled) {
+			this.disabled = disabled;
+		}
+
+
+		
 }

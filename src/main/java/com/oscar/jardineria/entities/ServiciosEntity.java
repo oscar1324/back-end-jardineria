@@ -28,6 +28,7 @@ public class ServiciosEntity {
 	
 	@Column(name = "precio_metro")
 	private Integer precio_metro;
+	
 
 	public ServiciosEntity() {
 		super();

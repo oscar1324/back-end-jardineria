@@ -42,19 +42,24 @@ public class PresupuestosEntity {
 	
 	@Column(name = "comentario")
 	private String comentario;
+	
+	@Column(name = "disabled")
+	private Integer disabled;
+
+	public PresupuestosEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public PresupuestosEntity(Integer id_presupuestos, UserEntity username, Integer cantidad_terreno,
-			String fecha_presupuesto, String comentario) {
+			String fecha_presupuesto, String comentario, Integer disabled) {
 		super();
 		this.id_presupuestos = id_presupuestos;
 		this.username = username;
 		this.cantidad_terreno = cantidad_terreno;
 		this.fecha_presupuesto = fecha_presupuesto;
 		this.comentario = comentario;
-	}
-
-	public PresupuestosEntity() {
-		super();
+		this.disabled = disabled;
 	}
 
 	public Integer getId_presupuestos() {
@@ -97,6 +102,13 @@ public class PresupuestosEntity {
 		this.comentario = comentario;
 	}
 
-	
+	public Integer getDisabled() {
+		return disabled;
+	}
+
+	public void setDisabled(Integer disabled) {
+		this.disabled = disabled;
+	}
+
 	
 }
