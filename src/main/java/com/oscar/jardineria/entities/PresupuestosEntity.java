@@ -3,14 +3,15 @@ package com.oscar.jardineria.entities;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -29,9 +30,9 @@ public class PresupuestosEntity {
 	@Column(name = "id_presupuestos")
 	private Integer id_presupuestos;
 	
-	// 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST) 
 	@JoinColumn(name = "username") 
-	private String username;
+	private UserEntity username;
 	
 	@Column(name = "cantidad_terreno")
 	private Integer cantidad_terreno;
@@ -41,21 +42,8 @@ public class PresupuestosEntity {
 	
 	@Column(name = "comentario")
 	private String comentario;
-	
 
-	
-
-
-	public PresupuestosEntity() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-
-
-	public PresupuestosEntity(Integer id_presupuestos, String username, Integer cantidad_terreno,
+	public PresupuestosEntity(Integer id_presupuestos, UserEntity username, Integer cantidad_terreno,
 			String fecha_presupuesto, String comentario) {
 		super();
 		this.id_presupuestos = id_presupuestos;
@@ -65,86 +53,50 @@ public class PresupuestosEntity {
 		this.comentario = comentario;
 	}
 
-
-
-
+	public PresupuestosEntity() {
+		super();
+	}
 
 	public Integer getId_presupuestos() {
 		return id_presupuestos;
 	}
 
-
-
-
-
 	public void setId_presupuestos(Integer id_presupuestos) {
 		this.id_presupuestos = id_presupuestos;
 	}
 
-
-
-
-
-	public String getUsername() {
+	public UserEntity getUsername() {
 		return username;
 	}
 
-
-
-
-
-	public void setUsername(String username) {
+	public void setUsername(UserEntity username) {
 		this.username = username;
 	}
-
-
-
-
 
 	public Integer getCantidad_terreno() {
 		return cantidad_terreno;
 	}
 
-
-
-
-
 	public void setCantidad_terreno(Integer cantidad_terreno) {
 		this.cantidad_terreno = cantidad_terreno;
 	}
-
-
-
-
 
 	public String getFecha_presupuesto() {
 		return fecha_presupuesto;
 	}
 
-
-
-
-
 	public void setFecha_presupuesto(String fecha_presupuesto) {
 		this.fecha_presupuesto = fecha_presupuesto;
 	}
-
-
-
-
 
 	public String getComentario() {
 		return comentario;
 	}
 
-
-
-
-
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
 
-
-
+	
+	
 }

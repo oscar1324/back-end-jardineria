@@ -19,22 +19,17 @@ import java.util.List;
 @Repository
 public interface UserRepository extends CrudRepository<UserEntity, String> {
 	
-	@Query(value = "select new com.oscar.jardineria.dtos.UserDTO (u.username, u.password,u.enabled, u.nombre, u.apellido, u.direccion ) "
+	@Query(value = "select new com.oscar.jardineria.dtos.UserDTO (u.username, u.password, u.disabled ) "
 			+ "FROM com.oscar.jardineria.entities.UserEntity u "
 			+ "WHERE (u.username LIKE CONCAT ('%', :username, '%') or :username is null) "
 			+ "AND u.password LIKE CONCAT ('%', :password, '%') "
-			+ "AND u.enabled LIKE CONCAT ('%', :enabled, '%') "
-			+ "AND u.nombre LIKE CONCAT ('%', :nombre, '%') "
-			+ "AND u.apellido LIKE CONCAT ('%', :apellido, '%') "
-			+ "AND u.direccion LIKE CONCAT ('%', :direccion, '%') "
+			+ "AND u.disabled LIKE CONCAT ('%', :disabled, '%') "
+
 
 		)
 	List<UserDTO>buscarUsuario( @Param("username") String username,
 								@Param("password" )String password,
-								@Param("enabled") Integer enabled,
-								@Param("nombre") String nombre,
-								@Param("apellido") String apellido,
-								@Param("direccion") String direccion
+								@Param("disabled" )Integer disabled
 
 								);
 

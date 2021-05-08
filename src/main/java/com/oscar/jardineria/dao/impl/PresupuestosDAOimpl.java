@@ -36,7 +36,7 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 		Optional<UserEntity> u = usuarioRepository.findById(username);		
 		UserEntity usuario = u.get();
 		
-		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, username, cantidad_terreno, fecha_presupuesto, comentario);
+		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, usuario, cantidad_terreno, fecha_presupuesto, comentario);
 		presupuestosRepository.save(presupuesto);
 		return null;
 	}
@@ -48,7 +48,7 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 		Optional<UserEntity> u = usuarioRepository.findById(username);		
 		UserEntity usuario = u.get();
 		
-		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, username, cantidad_terreno, fecha_presupuesto, comentario);
+		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, usuario, cantidad_terreno, fecha_presupuesto, comentario);
 		presupuestosRepository.save(presupuesto);
 		return null;
 	}

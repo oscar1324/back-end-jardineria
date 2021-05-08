@@ -6,9 +6,9 @@ import com.oscar.jardineria.dtos.UserDTO;
 
 public interface UserDAO {
 	
-	List<UserDTO> obtenerUsuariosporUsernameyTodo(String username, String password,Integer enabled,String nombre,String apellido,String direccion);
-	Integer insertarUsuario(String username, String password,Integer enabled,String nombre,String apellido,String direccion);
-	Integer actualizarUsuario(String username, String password,Integer enabled,String nombre,String apellido,String direccion);
+	List<UserDTO> obtenerUsuariosporUsernameyTodo(String username, String password, Integer disabled);
+	Integer insertarUsuario(String username, String password , Integer disabled);
+	Integer actualizarUsuario(String username, String password, Integer disabled);
 	Integer eliminarUsuario(String username);
 
 }

@@ -24,26 +24,23 @@ public class UserDAOimpl implements UserDAO{
 
 
 	@Override
-	public List<UserDTO> obtenerUsuariosporUsernameyTodo(String username, String password, Integer enabled,
-			String nombre, String apellido, String direccion) {
-		return userRepository.buscarUsuario(username, password, enabled, nombre, apellido, direccion);
+	public List<UserDTO> obtenerUsuariosporUsernameyTodo(String username, String password, Integer disabled) {
+		return userRepository.buscarUsuario(username, password, disabled);
 	
 	}
 
 
 	@Override
-	public Integer insertarUsuario(String username, String password, Integer enabled, String nombre, String apellido,
-			String direccion) {
-		UserEntity user = new UserEntity(username, password, enabled, nombre, apellido, direccion);
+	public Integer insertarUsuario(String username, String password,  Integer disabled) {
+		UserEntity user = new UserEntity(username, password, disabled);
 		userRepository.save(user);
 		return null;
 	}
 
 
 	@Override
-	public Integer actualizarUsuario(String username, String password, Integer enabled, String nombre, String apellido,
-			String direccion) {
-		UserEntity user = new UserEntity(username, password, enabled, nombre, apellido, direccion);
+	public Integer actualizarUsuario(String username, String password, Integer disabled) {
+		UserEntity user = new UserEntity(username, password, disabled);
 		userRepository.save(user);
 		return null;
 	}

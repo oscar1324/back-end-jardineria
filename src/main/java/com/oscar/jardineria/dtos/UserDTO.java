@@ -8,12 +8,9 @@ public class UserDTO {
 	
 	private String username;
 	private String password;
-	private int enabled;
-	private String nombre;
-	private String apellido;
-	private String direccion;
-	
-	
+	private int disabled;
+
+
 	
 	public UserDTO() {
 		super();
@@ -22,14 +19,11 @@ public class UserDTO {
 
 
 
-	public UserDTO(String username, String password, int enabled, String nombre, String apellido, String direccion) {
+	public UserDTO(String username, String password, int disabled) {
 		super();
 		this.username = username;
 		this.password = password;
-		this.enabled = enabled;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.direccion = direccion;
+		this.disabled = disabled;
 	}
 
 
@@ -58,51 +52,17 @@ public class UserDTO {
 
 
 
-	public int getEnabled() {
-		return enabled;
+	public int getDisabled() {
+		return disabled;
 	}
 
 
 
-	public void setEnabled(int enabled) {
-		this.enabled = enabled;
+	public void setDisabled(int disabled) {
+		this.disabled = disabled;
 	}
+	
 
-
-
-	public String getNombre() {
-		return nombre;
-	}
-
-
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-
-
-	public String getApellido() {
-		return apellido;
-	}
-
-
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
 
 
 	
