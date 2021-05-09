@@ -30,7 +30,7 @@ public class PresupuestosEntity {
 	@Column(name = "id_presupuestos")
 	private Integer id_presupuestos;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST) 
+	@ManyToOne(fetch = FetchType.LAZY) 
 	@JoinColumn(name = "username") 
 	private UserEntity username;
 	
