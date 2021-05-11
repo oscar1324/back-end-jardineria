@@ -30,7 +30,7 @@ public class PresupuestosEntity {
 	@Column(name = "id_presupuestos")
 	private Integer id_presupuestos;
 	
-	@ManyToOne(fetch = FetchType.LAZY) 
+	@ManyToOne(fetch = FetchType.EAGER) 
 	@JoinColumn(name = "username") 
 	private UserEntity username;
 	
