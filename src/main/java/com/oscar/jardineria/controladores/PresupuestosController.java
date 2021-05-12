@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.oscar.jardineria.dtos.PresupuestosDTO;
 import com.oscar.jardineria.entities.PresupuestosEntity;
+import com.oscar.jardineria.entities.UserEntity;
 import com.oscar.jardineria.repositorios.PresupuestosRepository;
 
 /**
@@ -35,12 +37,19 @@ public class PresupuestosController {
 	// INSERTAR -----------------------------------------------------------------------
 	// REVISAR
 	@PostMapping(value ="/presupuestos")
-	public ResponseEntity<String> insertarPrespuestos(@RequestBody PresupuestosEntity prespuestos) {
-		presupuestosRepository.save(prespuestos);
+	public ResponseEntity<String> insertarPrespuestos(@RequestBody PresupuestosDTO presupuestos) {
+		PresupuestosEntity pe = new PresupuestosEntity(
+				presupuestos.getId_presupuestos(),
+				new UserEntity(presupuestos.getUsername(), null, null),
+				presupuestos.getCantidad_terreno(),
+				presupuestos.getFecha_presupuesto(),
+				presupuestos.getComentario(),
+				presupuestos.getDisabled());
+		
+		presupuestosRepository.save(pe);
 		return new ResponseEntity<>("Inserción de prespuesto correcta", HttpStatus.OK);
 	}
 	// LISTAR -----------------------------------------------------------------------
-	// Lista mal , coge la id dupilcada creada por el mismo, para ver cotenido debes insertar información por los campos ducplicados
 	@GetMapping(value= "/presupuestos")
 	public Iterable<PresupuestosEntity> listarUsuario() {
 		return presupuestosRepository.findAll();
