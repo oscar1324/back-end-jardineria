@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.oscar.jardineria.daos.PresupuestosDAO;
 import com.oscar.jardineria.dtos.PresupuestosDTO;
 import com.oscar.jardineria.entities.PresupuestosEntity;
@@ -55,14 +54,22 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 
 	@Override
 	public Integer eliminarPresupuestos(Integer id_presupuestos) {
-		presupuestosRepository.deleteById(id_presupuestos				);
+		presupuestosRepository.deleteById(id_presupuestos);
 		return 1;
 	}
 
 	@Override
-	public Integer obtenerPresupuestos2(Integer id_presupuestos, String username, Integer cantidad_terreno) {
-		// TODO Auto-generated method stub
-		return null;
+	public double obtenerPresupuestos2(Integer cantidad_terreno, Integer id_presupuestos) {
+		// TRATAR
+		Optional<PresupuestosEntity> presu = presupuestosRepository.findById(cantidad_terreno); // dudo si es aquí cantidad_terreno, sería lo suyo
+		PresupuestosEntity presupuesto = presu.get(); // Sería obtener precio presupuesto
+		return presupuesto.getPrecio();
 	}
+	
+	/*
+	 * 		Optional<AsignaturaEntity> asig = asignaturaRepository.findById(idAsignatura);
+		AsignaturaEntity asignatura = asig.get();
+		
+		return asignatura.getTasa();*/
 
 }

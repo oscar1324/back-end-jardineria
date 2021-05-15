@@ -2,21 +2,17 @@ package com.oscar.jardineria.negocio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.oscar.jardineria.daos.DescuentosDAO;
 import com.oscar.jardineria.daos.PresupuestosDAO;
-import com.oscar.jardineria.daos.UserDAO;
 
 
 public class NegocioImplementacion implements INegocio{
-	@Autowired
-	private UserDAO userImpl;
+
 	@Autowired
 	private PresupuestosDAO presupuestosImpl;
 	
 	@Override
-	public Double calcularTasa(String username, Integer id_presupuestos, Integer cantidad_terreno) {
-		
-		int cantidad = presupuestosImpl.obtenerPresupuestos2(id_presupuestos, username, cantidad_terreno );
+	public Double calcularTasa(Integer cantidad_terreno, Integer id_presupuestos) {
+		double cantidad = presupuestosImpl.obtenerPresupuestos2(id_presupuestos, cantidad_terreno); // Sería obtener cantidad
 		//int descuento = descuentosImpl.obtenerDescuentosSolo(descuento); --- CONSULTAR
 		//int precio = desc
 		if((cantidad <= 50 )) {

@@ -35,7 +35,6 @@ public class PresupuestosController {
 	private PresupuestosRepository presupuestosRepository;
 	
 	// INSERTAR -----------------------------------------------------------------------
-	// REVISAR
 	@PostMapping(value ="/presupuestos")
 	public ResponseEntity<String> insertarPrespuestos(@RequestBody PresupuestosDTO presupuestos) {
 		PresupuestosEntity pe = new PresupuestosEntity(
@@ -44,7 +43,8 @@ public class PresupuestosController {
 				presupuestos.getCantidad_terreno(),
 				presupuestos.getFecha_presupuesto(),
 				presupuestos.getComentario(),
-				presupuestos.getDisabled());
+				presupuestos.getDisabled(),
+				presupuestos.getPrecio());
 		
 		presupuestosRepository.save(pe);
 		return new ResponseEntity<>("Inserción de prespuesto correcta", HttpStatus.OK);
@@ -61,7 +61,6 @@ public class PresupuestosController {
 	}
 	// ACTUALIZAR -----------------------------------------------------------------------
 	
-	// REVISAR
 	@PutMapping(value="/presupuestos")
 	public ResponseEntity<String> actualizarUsuario( @RequestBody PresupuestosEntity presupuestos){
 	//	presupuestosRepository.save(presupuestos);
@@ -70,7 +69,6 @@ public class PresupuestosController {
 	
 	
 	// BORRAR -----------------------------------------------------------------------
-	// -- No se puede borrar po rque tiene que ver username
 	@DeleteMapping(value="/presupuestos/{id_presupuestos}")
 	public ResponseEntity<String> borrarPresupuesto (@PathVariable("id_presupuestos") Integer id_presupuestos){
 		presupuestosRepository.deleteById(id_presupuestos);
