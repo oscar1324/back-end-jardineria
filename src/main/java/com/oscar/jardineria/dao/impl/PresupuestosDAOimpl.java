@@ -25,30 +25,30 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 
 	@Override
 	public List<PresupuestosDTO> obtenerPresupuestos(Integer id_presupuestos, String username, Integer cantidad_terreno,
-			String fecha_presupuesto, String comentario, Integer disabled) {
+			String fecha_presupuesto, String comentario, Integer disabled, Double precio) {
 		
-		return presupuestosRepository.buscarPresupuestos(id_presupuestos, username, cantidad_terreno, fecha_presupuesto, comentario,disabled);
+		return presupuestosRepository.buscarPresupuestos(id_presupuestos, username, cantidad_terreno, fecha_presupuesto, comentario,disabled, precio);
 	}
 
 	@Override
 	public Integer insertarPresupuestos(Integer id_presupuestos, String username, Integer cantidad_terreno,
-			String fecha_presupuesto, String comentario, Integer disabled) {
+			String fecha_presupuesto, String comentario, Integer disabled, Double precio) {
 		Optional<UserEntity> u = usuarioRepository.findById(username);		
 		UserEntity usuario = u.get();
 		
-		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, usuario, cantidad_terreno, fecha_presupuesto, comentario,disabled);
+		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, usuario, cantidad_terreno, fecha_presupuesto, comentario,disabled,precio);
 		presupuestosRepository.save(presupuesto);
 		return null;
 	}
 
 	@Override
 	public Integer actualizarPresupuestos(Integer id_presupuestos, String username, Integer cantidad_terreno,
-			String fecha_presupuesto, String comentario, Integer disabled) {
+			String fecha_presupuesto, String comentario, Integer disabled, Double precio) {
 		
 		Optional<UserEntity> u = usuarioRepository.findById(username);		
 		UserEntity usuario = u.get();
 		
-		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, usuario, cantidad_terreno, fecha_presupuesto, comentario,disabled);
+		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, usuario, cantidad_terreno, fecha_presupuesto, comentario,disabled,precio);
 		presupuestosRepository.save(presupuesto);
 		return null;
 	}

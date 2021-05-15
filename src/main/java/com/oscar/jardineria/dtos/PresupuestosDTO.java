@@ -13,6 +13,7 @@ public class PresupuestosDTO {
 		public String fecha_presupuesto;
 		public String comentario ;
 		public Integer disabled;
+		public Double precio;
 		
 		
 		public PresupuestosDTO() {
@@ -22,7 +23,7 @@ public class PresupuestosDTO {
 
 
 		public PresupuestosDTO(Integer id_presupuestos, String username, Integer cantidad_terreno,
-				String fecha_presupuesto, String comentario, Integer disabled) {
+				String fecha_presupuesto, String comentario, Integer disabled, Double precio) {
 			super();
 			this.id_presupuestos = id_presupuestos;
 			this.username = username;
@@ -30,6 +31,7 @@ public class PresupuestosDTO {
 			this.fecha_presupuesto = fecha_presupuesto;
 			this.comentario = comentario;
 			this.disabled = disabled;
+			this.precio = precio;
 		}
 
 
@@ -90,6 +92,16 @@ public class PresupuestosDTO {
 
 		public void setDisabled(Integer disabled) {
 			this.disabled = disabled;
+		}
+
+
+		public Double getPrecio() {
+			return precio;
+		}
+
+
+		public void setPrecio(Double precio) {
+			this.precio = precio;
 		}
 
 

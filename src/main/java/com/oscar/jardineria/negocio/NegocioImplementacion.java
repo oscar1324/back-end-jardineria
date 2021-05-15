@@ -11,8 +11,6 @@ public class NegocioImplementacion implements INegocio{
 	@Autowired
 	private UserDAO userImpl;
 	@Autowired
-	private DescuentosDAO descuentosImpl;
-	@Autowired
 	private PresupuestosDAO presupuestosImpl;
 	
 	@Override

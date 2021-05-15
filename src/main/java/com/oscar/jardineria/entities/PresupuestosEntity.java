@@ -45,6 +45,9 @@ public class PresupuestosEntity {
 	
 	@Column(name = "disabled")
 	private Integer disabled;
+	
+	@Column(name = "precio")
+	private Double precio;
 
 	public PresupuestosEntity() {
 		super();
@@ -52,7 +55,7 @@ public class PresupuestosEntity {
 	}
 
 	public PresupuestosEntity(Integer id_presupuestos, UserEntity username, Integer cantidad_terreno,
-			String fecha_presupuesto, String comentario, Integer disabled) {
+			String fecha_presupuesto, String comentario, Integer disabled, Double precio) {
 		super();
 		this.id_presupuestos = id_presupuestos;
 		this.username = username;
@@ -60,6 +63,7 @@ public class PresupuestosEntity {
 		this.fecha_presupuesto = fecha_presupuesto;
 		this.comentario = comentario;
 		this.disabled = disabled;
+		this.precio = precio;
 	}
 
 	public Integer getId_presupuestos() {
@@ -108,6 +112,14 @@ public class PresupuestosEntity {
 
 	public void setDisabled(Integer disabled) {
 		this.disabled = disabled;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
 	}
 
 	
