@@ -59,4 +59,10 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 		return 1;
 	}
 
+	@Override
+	public Integer obtenerPresupuestos2(Integer id_presupuestos, String username, Integer cantidad_terreno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -12,6 +12,7 @@ public interface DescuentosDAO {
 	Integer insertarDescuentos(Integer id_descuentos, Integer cantidad, Integer descuento);
 	Integer actualizarDescuentos(Integer id_descuentos,Integer cantidad, Integer descuento);
 	Integer eliminarDescuentos(Integer id_descuentos);
+	Integer obtenerDescuentosSolo(Integer descuento);
 
 
 }

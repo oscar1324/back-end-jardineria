@@ -45,6 +45,12 @@ public class DescuentosDAOimpl implements DescuentosDAO{
 		return null;
 	}
 
+	@Override
+	public Integer obtenerDescuentosSolo(Integer descuento) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 
