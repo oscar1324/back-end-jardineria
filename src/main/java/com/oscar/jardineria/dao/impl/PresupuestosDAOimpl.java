@@ -59,19 +59,18 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 	}
 
 	@Override
-	public double obtenerPresupuestos2(Integer cantidad_terreno, Integer id_presupuestos) {
-		// TRATAR
-		Optional<PresupuestosEntity> presu = presupuestosRepository.findById(cantidad_terreno); // dudo si es aquí cantidad_terreno, sería lo suyo
-		PresupuestosEntity presupuesto = presu.get(); // Sería obtener precio presupuesto
-		return presupuesto.getPrecio();
+	public double obtenerCantidadTerreno(Integer cantidad_terreno) {
+		// TRATAR 
+		//return presupuestosRepository.buscarPresupuestos(cantidad_terreno);
+		return 0;
 	}
 
 	@Override
-	public double insertarPrecio(Integer id_presupuestos, Double precio) {
-
-		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos,precio);
-		presupuestosRepository.save(presupuesto);
-		return 0;
+	public double obtenerPrecio(double precio) {
+		// Preguntar ----- ES ERROENO
+		Optional<PresupuestosEntity> presu = presupuestosRepository.findById((int) precio);
+		PresupuestosEntity presupuesto = presu.get(); 
+		return presupuesto.getPrecio();
 	}
 	
 

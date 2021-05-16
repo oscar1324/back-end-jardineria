@@ -36,6 +36,12 @@ public interface PresupuestosRepository extends CrudRepository<PresupuestosEntit
 											 @Param("comentario") String comentario,
 											 @Param("disabled") Integer disabled,
 											 @Param("precio") Double precio);
+
+	
+	//List<PresupuestosDTO> buscarCantidades(@Param("precio") Double precio);
+	//double buscarPresupuestos(@Param("cantidad_terreno") Integer cantidad_terreno);
+
+	
 	
 }
 

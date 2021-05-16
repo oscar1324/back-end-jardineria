@@ -49,23 +49,28 @@ public class PresupuestosController {
 		presupuestosRepository.save(pe);
 		return new ResponseEntity<>("Inserción de prespuesto correcta", HttpStatus.OK);
 	}
+	
 	// LISTAR -----------------------------------------------------------------------
 	@GetMapping(value= "/presupuestos")
-	public Iterable<PresupuestosEntity> listarUsuario() {
+	public Iterable<PresupuestosEntity> listarPresupuesto() {
 		return presupuestosRepository.findAll();
 	}
 	
+	
+	
 	@GetMapping(value = "/presupuestos/{id_presupuestos}")
-	public Optional<PresupuestosEntity> listarUsuarioporID( @PathVariable("id_presupuestos") Integer id_presupuestos){
+	public Optional<PresupuestosEntity> listarPresupuestoporID( @PathVariable("id_presupuestos") Integer id_presupuestos){
 		return presupuestosRepository.findById(id_presupuestos);
 	}
 	// ACTUALIZAR -----------------------------------------------------------------------
 	
 	@PutMapping(value="/presupuestos")
-	public ResponseEntity<String> actualizarUsuario( @RequestBody PresupuestosEntity presupuestos){
+	public ResponseEntity<String> actualizarPresupuesto( @RequestBody PresupuestosEntity presupuestos){
 	//	presupuestosRepository.save(presupuestos);
 		return new ResponseEntity<String> ("Actualización presupuestos de usuario", HttpStatus.OK);
 	}
+	
+	// ¿Método nuevo para calculo presupuesto? --- Entiendo que sería un actualizar 
 	
 	
 	// BORRAR -----------------------------------------------------------------------

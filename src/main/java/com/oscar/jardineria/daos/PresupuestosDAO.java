@@ -12,8 +12,8 @@ public interface PresupuestosDAO {
 	Integer insertarPresupuestos(Integer id_presupuestos,String username,Integer cantidad_terreno,String fecha_presupuesto, String comentario, Integer disabled, Double precio);
 	Integer actualizarPresupuestos(Integer id_presupuestos,String username,Integer cantidad_terreno,String fecha_presupuesto, String comentario, Integer disabled, Double precio);
 	Integer eliminarPresupuestos(Integer id_presupuestos);
-	double obtenerPresupuestos2(Integer id_presupuestos, Integer cantidad_terreno);
-	double insertarPrecio(Integer id_presupuestos, Double precio);
+	double obtenerCantidadTerreno( Integer cantidad_terreno);
+	double obtenerPrecio( double precio);
 
 }
 

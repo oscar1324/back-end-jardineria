@@ -3,9 +3,7 @@
 -- Host: 127.0.0.1    Database: jardinrobledo
 -- ------------------------------------------------------
 -- Server version	8.0.19
-drop database if exists jardinrobledo;
-create database jardinrobledo;
-use jardinrobledo;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -18,34 +16,11 @@ use jardinrobledo;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `descuentos`
---
-
-DROP TABLE IF EXISTS `descuentos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `descuentos` (
-  `id_descuentos` int NOT NULL AUTO_INCREMENT,
-  `cantidad` int DEFAULT NULL,
-  `descuento` int DEFAULT NULL,
-  PRIMARY KEY (`id_descuentos`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `descuentos`
---
-
-LOCK TABLES `descuentos` WRITE;
-/*!40000 ALTER TABLE `descuentos` DISABLE KEYS */;
-INSERT INTO `descuentos` VALUES (1,0,5),(2,0,10),(3,0,15);
-/*!40000 ALTER TABLE `descuentos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `detallepresupuesto`
 --
-
+drop database if exists jardinrobledo;
+create database jardinrobledo;
+use jardinrobledo;
 DROP TABLE IF EXISTS `detallepresupuesto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -148,7 +123,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('@Administrador','ADMINISTRADOR',1),('@Carlos','33',1),('@Cristiano','777777',1),('@CristianoRonaldo','Giorgina',1),('@DonOmar','cantante334',1),('@Fariño_Gomez','we23rt45',1),('@Oscar_bichito','Macarrones',1),('@Pepe','23JOSE12',1),('@Roberto_firmino','Liverrpool',1),('@TohanGomez','234/amorLOVE',1),('@Usuario','SinSal',1),('@Zidane','SoyMadrilista',1);
+INSERT INTO `users` VALUES ('@Administrador','ADMINISTRADOR',1),('@Carlos','33',1),('@Cristiano','23%&56',1),('@CristianoRonaldo','Giorgina',1),('@DonOmar','cantante334',1),('@Fariño_Gomez','we23rt45',1),('@Oscar_bichito','Macarrones',1),('@Pepe','23JOSE12',1),('@Roberto_firmino','Liverrpool',1),('@TohanGomez','234/amorLOVE',1),('@Usuario','SinSal',1),('@Zidane','SoyMadrilista',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -161,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-15 11:45:51
+-- Dump completed on 2021-05-16 12:13:17

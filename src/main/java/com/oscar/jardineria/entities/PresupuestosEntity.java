@@ -3,7 +3,6 @@ package com.oscar.jardineria.entities;
 
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -68,6 +67,10 @@ public class PresupuestosEntity {
 
 	public PresupuestosEntity(Integer id_presupuestos2, Double precio2) {
 		this.id_presupuestos = id_presupuestos2;
+		this.precio = precio2;
+	}
+
+	public PresupuestosEntity(Double precio2) {
 		this.precio = precio2;
 	}
 
