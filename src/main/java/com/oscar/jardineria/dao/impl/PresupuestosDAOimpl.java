@@ -65,11 +65,15 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 		PresupuestosEntity presupuesto = presu.get(); // Sería obtener precio presupuesto
 		return presupuesto.getPrecio();
 	}
+
+	@Override
+	public double insertarPrecio(Integer id_presupuestos, Double precio) {
+
+		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos,precio);
+		presupuestosRepository.save(presupuesto);
+		return 0;
+	}
 	
-	/*
-	 * 		Optional<AsignaturaEntity> asig = asignaturaRepository.findById(idAsignatura);
-		AsignaturaEntity asignatura = asig.get();
-		
-		return asignatura.getTasa();*/
+
 
 }

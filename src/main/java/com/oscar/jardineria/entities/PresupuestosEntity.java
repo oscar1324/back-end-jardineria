@@ -66,6 +66,11 @@ public class PresupuestosEntity {
 		this.precio = precio;
 	}
 
+	public PresupuestosEntity(Integer id_presupuestos2, Double precio2) {
+		this.id_presupuestos = id_presupuestos2;
+		this.precio = precio2;
+	}
+
 	public Integer getId_presupuestos() {
 		return id_presupuestos;
 	}

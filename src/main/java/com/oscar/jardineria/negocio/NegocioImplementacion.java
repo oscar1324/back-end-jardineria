@@ -13,6 +13,7 @@ public class NegocioImplementacion implements INegocio{
 	@Override
 	public Double calcularTasa(Integer cantidad_terreno, Integer id_presupuestos) {
 		double cantidad = presupuestosImpl.obtenerPresupuestos2(id_presupuestos, cantidad_terreno); // Sería obtener cantidad
+		//int precio = presupuestosImpl.insertarPrecio(id_presupuestos, precio);
 		//int descuento = descuentosImpl.obtenerDescuentosSolo(descuento); --- CONSULTAR
 		//int precio = desc
 		if((cantidad <= 50 )) {
