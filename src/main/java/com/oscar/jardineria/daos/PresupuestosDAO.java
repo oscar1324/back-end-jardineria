@@ -7,12 +7,12 @@ import com.oscar.jardineria.dtos.PresupuestosDTO;
 
 public interface PresupuestosDAO {
 	
-	
-	List<PresupuestosDTO> obtenerPresupuestos(Integer id_presupuestos,String username,Integer cantidad_terreno,String fecha_presupuesto, String comentario, Integer disabled, Double precio);
-	Integer insertarPresupuestos(Integer id_presupuestos,String username,Integer cantidad_terreno,String fecha_presupuesto, String comentario, Integer disabled, Double precio);
-	Integer actualizarPresupuestos(Integer id_presupuestos,String username,Integer cantidad_terreno,String fecha_presupuesto, String comentario, Integer disabled, Double precio);
-	Integer eliminarPresupuestos(Integer id_presupuestos);
-	double obtenerCantidadTerreno( Integer cantidad_terreno);
+
+	List<PresupuestosDTO> obtenerPresupuestos(Integer idPresupuestos,String username,Integer cantidadTerreno,String fechaPresupuesto, String comentario, Integer disabled, Double precio);
+	Integer insertarPresupuestos(Integer idPresupuestos,String username,Integer cantidadTerreno,String fechaPresupuesto, String comentario, Integer disabled, Double precio);
+	Integer actualizarPresupuestos(Integer idPresupuestos,String username,Integer cantidadTerreno,String fechaPresupuesto, String comentario, Integer disabled, Double precio);
+	Integer eliminarPresupuestos(Integer idPresupuestos);
+	double obtenerCantidadTerreno( Integer cantidadTerreno);
 	double obtenerPrecio( double precio);
 
 }

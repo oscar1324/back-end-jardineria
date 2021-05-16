@@ -15,25 +15,25 @@ public class ServiciosDAOimpl implements ServiciosDAO{
 	@Autowired
 	private ServiciosRepository servicioRepository;
 	
-	
+
 	@Override
-	public List<ServiciosDTO> obtenerServicios(Integer id_servicios, String descripcion_servicio, Integer precio_metro) {
+	public List<ServiciosDTO> obtenerServicios(Integer idServicios, String descripcionServicio, Integer precioMetro) {
 		
-		return servicioRepository.buscarServicios(id_servicios, descripcion_servicio, precio_metro);
+		return servicioRepository.buscarServicios(idServicios, descripcionServicio, precioMetro);
 	}
 
 	@Override
-	public Integer insertarServicio(Integer id_servicios, String descripcion_servicio, Integer precio_metro) {
+	public Integer insertarServicio(Integer idServicios, String descripcionServicio, Integer precioMetro) {
 		
-		ServiciosEntity servicio = new ServiciosEntity(id_servicios, descripcion_servicio, precio_metro);
+		ServiciosEntity servicio = new ServiciosEntity(idServicios, descripcionServicio, precioMetro);
 		servicioRepository.save(servicio);
 
 		return null;
 	}
 
 	@Override
-	public Integer actualizarServicio(Integer id_servicios, String descripcion_servicio, Integer precio_metro) {
-		ServiciosEntity rr = new ServiciosEntity(id_servicios, descripcion_servicio, precio_metro);
+	public Integer actualizarServicio(Integer idServicios, String descripcionServicio, Integer precioMetro) {
+		ServiciosEntity rr = new ServiciosEntity(idServicios, descripcionServicio, precioMetro);
 		servicioRepository.save(rr);
 		return null;
 	}

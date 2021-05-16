@@ -18,21 +18,21 @@ import java.util.List;
 @Repository
 public interface PresupuestosRepository extends CrudRepository<PresupuestosEntity, Integer>{
 	
-	@Query( value =" select new com.oscar.jardineria.dtos.PresupuestosDTO (p.id_presupuestos, u.username, p.cantidad_terreno, p.fecha_presupuesto, p.comentario, p.disabled, p.precio) "
-			+"FROM com.oscar.jardineria.entities.PresupuestosEntity p JOIN com.oscar.jardineria.entities.UserEntity u ON p.id_presupuestos = u.username "
-			+"WHERE (p.id_presupuestos LIKE CONCAT ('%', :id_presupuestos, '%') or :id_presupuestos is null) "
+	@Query( value =" select new com.oscar.jardineria.dtos.PresupuestosDTO (p.idPresupuestos, u.username, p.cantidadTerreno, p.fechaPresupuesto, p.comentario, p.disabled, p.precio) "
+			+"FROM com.oscar.jardineria.entities.PresupuestosEntity p JOIN com.oscar.jardineria.entities.UserEntity u ON p.idPresupuestos = u.username "
+			+"WHERE (p.idPresupuestos LIKE CONCAT ('%', :idPresupuestos, '%') or :idPresupuestos is null) "
 			+"AND u.username LIKE CONCAT ('%', :username, '%') "
-			+"AND p.cantidad_terreno LIKE CONCAT ('%', :cantidad_terreno, '%') "
-			+"AND p.fecha_presupuesto LIKE CONCAT ('%', :fecha_presupuesto, '%') "
+			+"AND p.cantidadTerreno LIKE CONCAT ('%', :cantidadTerreno, '%') "
+			+"AND p.fechaPresupuesto LIKE CONCAT ('%', :fechaPresupuesto, '%') "
 			+"AND p.comentario LIKE CONCAT ('%', :comentario, '%') "
 			+"AND p.disabled LIKE CONCAT ('%', :disabled, '%') "
 			+"AND p.precio LIKE CONCAT ('%', :precio, '%') "
 			
 			)
-	List<PresupuestosDTO> buscarPresupuestos(@Param("id_presupuestos") Integer id_presupuestos,
+	List<PresupuestosDTO> buscarPresupuestos(@Param("idPresupuestos") Integer idPresupuestos,
 										 	 @Param("username") String username,
-											 @Param("cantidad_terreno") Integer cantidad_terreno,
-											 @Param("fecha_presupuesto") String fecha_presupuesto,
+											 @Param("cantidadTerreno") Integer cantidadTerreno,
+											 @Param("fechaPresupuesto") String fechaPresupuesto,
 											 @Param("comentario") String comentario,
 											 @Param("disabled") Integer disabled,
 											 @Param("precio") Double precio);
@@ -40,6 +40,8 @@ public interface PresupuestosRepository extends CrudRepository<PresupuestosEntit
 	
 	//List<PresupuestosDTO> buscarCantidades(@Param("precio") Double precio);
 	//double buscarPresupuestos(@Param("cantidad_terreno") Integer cantidad_terreno);
+	
+
 
 	
 	

@@ -20,15 +20,18 @@ import com.oscar.jardineria.entities.ServiciosEntity;
 @Repository
 public interface ServiciosRepository extends CrudRepository<ServiciosEntity, Integer> {
 	
-	@Query(value = "select new com.oscar.jardineria.dtos.ServiciosDTO (s.id_servicios, s.descripcion_servicio, s.precio_metro) "
+	@Query(value = "select new com.oscar.jardineria.dtos.ServiciosDTO (s.idServicios, s.descripcionServicio, s.precioMetro) "
 			+ " FROM com.oscar.jardineria.entities.ServiciosEntity s "
-			+ "WHERE (s.id_servicios LIKE CONCAT ('%', :id_servicios, '%') or :id_servicios is null) "
-			+ "AND s.descripcion_servicio LIKE CONCAT ('%', :descripcion_servicio, '%') "
-			+ "AND s.precio_metro LIKE CONCAT ('%', :precio_metro, '%') "
+			+ "WHERE (s.idServicios LIKE CONCAT ('%', :idServicios, '%') or :idServicios is null) "
+			+ "AND s.descripcionServicio LIKE CONCAT ('%', :descripcionServicio, '%') "
+			+ "AND s.precioMetro LIKE CONCAT ('%', :precioMetro, '%') "
 			
 			)
-	List <ServiciosDTO> buscarServicios( @Param("id_servicios") Integer id_servicios,
-										 @Param("descripcion_servicio") String descripcion_servicio,
-										 @Param("precio_metro") Integer precio_metro);
+	List <ServiciosDTO> buscarServicios( @Param("idServicios") Integer idServicios,
+										 @Param("descripcionServicio") String descripcionServicio,
+										 @Param("precioMetro") Integer precioMetro);
 
 }
+
+
+

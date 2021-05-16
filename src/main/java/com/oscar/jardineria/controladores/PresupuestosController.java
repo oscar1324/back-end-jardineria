@@ -38,10 +38,10 @@ public class PresupuestosController {
 	@PostMapping(value ="/presupuestos")
 	public ResponseEntity<String> insertarPrespuestos(@RequestBody PresupuestosDTO presupuestos) {
 		PresupuestosEntity pe = new PresupuestosEntity(
-				presupuestos.getId_presupuestos(),
+				presupuestos.getIdPresupuestos(),
 				new UserEntity(presupuestos.getUsername(), null, null),
-				presupuestos.getCantidad_terreno(),
-				presupuestos.getFecha_presupuesto(),
+				presupuestos.getCantidadTerreno(),
+				presupuestos.getFechaPresupuesto(),
 				presupuestos.getComentario(),
 				presupuestos.getDisabled(),
 				presupuestos.getPrecio());
