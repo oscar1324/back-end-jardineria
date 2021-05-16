@@ -11,7 +11,7 @@ public class NegocioImplementacion implements INegocio{
 	private PresupuestosDAO presupuestosImpl;
 	
 	@Override
-	public Double calcularTasa(Integer cantidad_terreno, double precio ) {
+	public Double calcularPrecio(Integer cantidad_terreno, double precio ) {
 		double cantidad = presupuestosImpl.obtenerCantidadTerreno( cantidad_terreno); // Sería obtener cantidad
 		double precioTotal = presupuestosImpl.obtenerPrecio(precio);
 	
