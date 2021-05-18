@@ -1,6 +1,7 @@
 package com.oscar.jardineria.dtos;
 
 public class SolicitudPresupuestoDTO {
+	
 	private String user;
 	private Integer terreno;
 	private String comentario;
@@ -41,5 +42,6 @@ public class SolicitudPresupuestoDTO {
 	public void setServicio(Integer servicio) {
 		this.servicio = servicio;
 	}
+	
 	
 }

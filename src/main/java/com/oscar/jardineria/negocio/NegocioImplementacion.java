@@ -16,7 +16,7 @@ import com.oscar.jardineria.entities.UserEntity;
 import com.oscar.jardineria.repositorios.PresupuestosRepository;
 import com.oscar.jardineria.repositorios.ServiciosRepository;
 
-
+@Service
 public class NegocioImplementacion implements INegocio{
 
 

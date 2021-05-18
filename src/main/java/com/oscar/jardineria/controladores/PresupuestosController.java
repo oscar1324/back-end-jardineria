@@ -3,6 +3,7 @@ package com.oscar.jardineria.controladores;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,8 +38,8 @@ public class PresupuestosController {
 	@Autowired
 	private PresupuestosRepository presupuestosRepository;
 	
-	//@Autowired
-	//private INegocio negocio;
+	@Autowired
+	private INegocio negocio;
 	
 	// INSERTAR -----------------------------------------------------------------------
 	@PostMapping(value ="/presupuestos")
@@ -57,10 +58,10 @@ public class PresupuestosController {
 	}
 	
 	@PostMapping(value ="/solicitudpresupuesto")
-//	public ResponseEntity<PresupuestoCalculadoDTO> solicitudPrespuesto(@RequestBody SolicitudPresupuestoDTO solicitudPresupuesto) {
-//		negocio.calcularPresupuesto(solicitudPresupuesto);
-//		return new ResponseEntity<PresupuestoCalculadoDTO>(negocio.calcularPresupuesto(solicitudPresupuesto), HttpStatus.OK);
-//	}
+	public double solicitudPrespuesto(@RequestBody SolicitudPresupuestoDTO solicitudPresupuesto) {
+		negocio.calcularPresupuesto(solicitudPresupuesto);
+		return negocio.calcularPresupuesto(solicitudPresupuesto).getPresupuesto();
+	}
 	
 	// LISTAR -----------------------------------------------------------------------
 	@GetMapping(value= "/presupuestos")
@@ -82,7 +83,6 @@ public class PresupuestosController {
 		return new ResponseEntity<String> ("Actualización presupuestos de usuario", HttpStatus.OK);
 	}
 	
-	// ¿Método nuevo para calculo presupuesto? --- Entiendo que sería un actualizar 
 	
 	
 	// BORRAR -----------------------------------------------------------------------

@@ -1,6 +1,7 @@
 package com.oscar.jardineria.dtos;
 
 public class PresupuestoCalculadoDTO {
+	
 	private double presupuesto;
 	
 	
@@ -19,4 +20,6 @@ public class PresupuestoCalculadoDTO {
 	}
 	
 	
+	
+
 }
