@@ -1,21 +1,36 @@
 package com.oscar.jardineria.negocio;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.oscar.jardineria.daos.PresupuestosDAO;
+import com.oscar.jardineria.dtos.PresupuestoCalculadoDTO;
+import com.oscar.jardineria.dtos.SolicitudPresupuestoDTO;
+import com.oscar.jardineria.entities.PresupuestosEntity;
+import com.oscar.jardineria.entities.ServiciosEntity;
+import com.oscar.jardineria.entities.UserEntity;
+import com.oscar.jardineria.repositorios.PresupuestosRepository;
+import com.oscar.jardineria.repositorios.ServiciosRepository;
 
 
 public class NegocioImplementacion implements INegocio{
 
+
 	@Autowired
 	private PresupuestosDAO presupuestosImpl;
+	@Autowired
+	private ServiciosRepository serviciosRepository;
+	@Autowired
+	private PresupuestosRepository presupuestosRepository;
 	
 	@Override
 	public Double calcularPrecio(Integer cantidadTerreno, double precio ) {
-		// ¿Obtengo la cantidad de terreno pero como sabe de que id?
 		double cantidad = presupuestosImpl.obtenerCantidadTerreno( cantidadTerreno); // Sería obtener cantidad
 		double precioTotal = presupuestosImpl.obtenerPrecio(precio);
-		// ¿Es correcto este método para guardarlo?
 	
 		if((cantidad <= 50 )) {
 			precioTotal = cantidad * 0.05;
@@ -29,5 +44,31 @@ public class NegocioImplementacion implements INegocio{
 			return null;
 		}
 		return precioTotal;
+	}
+
+	@Override
+	public PresupuestoCalculadoDTO calcularPresupuesto(SolicitudPresupuestoDTO solicitudPresupuesto) {
+		
+		ServiciosEntity servicio = serviciosRepository.findById(solicitudPresupuesto.getServicio()).orElse(null);
+		
+		double precioServicio = servicio.getPrecioMetro();
+		if(( solicitudPresupuesto.getTerreno() == 50 )) {
+			precioServicio = servicio.getPrecioMetro() * 0.95;
+		} else if((solicitudPresupuesto.getTerreno() >= 50) && (solicitudPresupuesto.getTerreno() <= 150)) {
+			precioServicio  = servicio.getPrecioMetro()  * 0.90;
+			
+		} else if((solicitudPresupuesto.getTerreno() >= 150) ){
+			precioServicio  = servicio.getPrecioMetro()  * 0.85;
+		}
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String hoy = df.format(new Date());
+		PresupuestosEntity p = new PresupuestosEntity (null, 
+								new UserEntity(solicitudPresupuesto.getUser(), null, null),
+								solicitudPresupuesto.getTerreno(),
+								hoy,
+								solicitudPresupuesto.getComentario(),
+								1,precioServicio);
+		presupuestosRepository.save(p);
+		return new PresupuestoCalculadoDTO(precioServicio);
 	}
 }

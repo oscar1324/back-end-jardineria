@@ -16,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.oscar.jardineria.dtos.PresupuestoCalculadoDTO;
 import com.oscar.jardineria.dtos.PresupuestosDTO;
+import com.oscar.jardineria.dtos.SolicitudPresupuestoDTO;
 import com.oscar.jardineria.entities.PresupuestosEntity;
 import com.oscar.jardineria.entities.UserEntity;
+import com.oscar.jardineria.negocio.INegocio;
 import com.oscar.jardineria.repositorios.PresupuestosRepository;
 
 /**
@@ -33,6 +36,9 @@ public class PresupuestosController {
 	
 	@Autowired
 	private PresupuestosRepository presupuestosRepository;
+	
+	//@Autowired
+	//private INegocio negocio;
 	
 	// INSERTAR -----------------------------------------------------------------------
 	@PostMapping(value ="/presupuestos")
@@ -49,6 +55,12 @@ public class PresupuestosController {
 		presupuestosRepository.save(pe);
 		return new ResponseEntity<>("Inserción de prespuesto correcta", HttpStatus.OK);
 	}
+	
+	@PostMapping(value ="/solicitudpresupuesto")
+//	public ResponseEntity<PresupuestoCalculadoDTO> solicitudPrespuesto(@RequestBody SolicitudPresupuestoDTO solicitudPresupuesto) {
+//		negocio.calcularPresupuesto(solicitudPresupuesto);
+//		return new ResponseEntity<PresupuestoCalculadoDTO>(negocio.calcularPresupuesto(solicitudPresupuesto), HttpStatus.OK);
+//	}
 	
 	// LISTAR -----------------------------------------------------------------------
 	@GetMapping(value= "/presupuestos")
