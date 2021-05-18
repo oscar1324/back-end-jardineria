@@ -11,9 +11,11 @@ public class NegocioImplementacion implements INegocio{
 	private PresupuestosDAO presupuestosImpl;
 	
 	@Override
-	public Double calcularPrecio(Integer cantidad_terreno, double precio ) {
-		double cantidad = presupuestosImpl.obtenerCantidadTerreno( cantidad_terreno); // Sería obtener cantidad
+	public Double calcularPrecio(Integer cantidadTerreno, double precio ) {
+		// ¿Obtengo la cantidad de terreno pero como sabe de que id?
+		double cantidad = presupuestosImpl.obtenerCantidadTerreno( cantidadTerreno); // Sería obtener cantidad
 		double precioTotal = presupuestosImpl.obtenerPrecio(precio);
+		// ¿Es correcto este método para guardarlo?
 	
 		if((cantidad <= 50 )) {
 			precioTotal = cantidad * 0.05;

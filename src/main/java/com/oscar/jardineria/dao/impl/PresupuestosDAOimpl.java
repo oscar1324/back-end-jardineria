@@ -22,43 +22,45 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 	private UserRepository usuarioRepository;
 	
 	@Override
-	public List<PresupuestosDTO> obtenerPresupuestos(Integer id_presupuestos, String username, Integer cantidad_terreno,
-			String fecha_presupuesto, String comentario, Integer disabled, Double precio) {
+	public List<PresupuestosDTO> obtenerPresupuestos(Integer idPresupuestos, String username, Integer cantidadTerreno,
+			String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
 		
-		return presupuestosRepository.buscarPresupuestos(id_presupuestos, username, cantidad_terreno, fecha_presupuesto, comentario,disabled, precio);
+		return presupuestosRepository.buscarPresupuestos(idPresupuestos, username, cantidadTerreno, fechaPresupuesto, comentario,disabled, precio);
 	}
-
+	
+	
 	@Override
-	public Integer insertarPresupuestos(Integer id_presupuestos, String username, Integer cantidad_terreno,
-			String fecha_presupuesto, String comentario, Integer disabled, Double precio) {
+	public Integer insertarPresupuestos(Integer idPresupuestos, String username, Integer cantidadTerreno,
+			String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
 		Optional<UserEntity> u = usuarioRepository.findById(username);		
 		UserEntity usuario = u.get();
 		
-		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, usuario, cantidad_terreno, fecha_presupuesto, comentario,disabled,precio);
+		PresupuestosEntity presupuesto = new PresupuestosEntity(idPresupuestos, usuario, cantidadTerreno, fechaPresupuesto, comentario,disabled,precio);
+		presupuestosRepository.save(presupuesto);
+		return null;
+	}
+
+	// Revisión, no actualiza bien para cambiar disabled
+	@Override
+	public Integer actualizarPresupuestos(Integer idPresupuestos, String username, Integer cantidadTerreno,
+			String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
+		
+		Optional<UserEntity> u = usuarioRepository.findById(username);		
+		UserEntity usuario = u.get();
+		
+		PresupuestosEntity presupuesto = new PresupuestosEntity(idPresupuestos, usuario, cantidadTerreno, fechaPresupuesto, comentario,disabled,precio);
 		presupuestosRepository.save(presupuesto);
 		return null;
 	}
 
 	@Override
-	public Integer actualizarPresupuestos(Integer id_presupuestos, String username, Integer cantidad_terreno,
-			String fecha_presupuesto, String comentario, Integer disabled, Double precio) {
-		
-		Optional<UserEntity> u = usuarioRepository.findById(username);		
-		UserEntity usuario = u.get();
-		
-		PresupuestosEntity presupuesto = new PresupuestosEntity(id_presupuestos, usuario, cantidad_terreno, fecha_presupuesto, comentario,disabled,precio);
-		presupuestosRepository.save(presupuesto);
-		return null;
-	}
-
-	@Override
-	public Integer eliminarPresupuestos(Integer id_presupuestos) {
-		presupuestosRepository.deleteById(id_presupuestos);
+	public Integer eliminarPresupuestos(Integer idPresupuestos) {
+		presupuestosRepository.deleteById(idPresupuestos);
 		return 1;
 	}
 
 	@Override
-	public double obtenerCantidadTerreno(Integer cantidad_terreno) {
+	public double obtenerCantidadTerreno(Integer cantidadTerreno) {
 		// TRATAR 
 		//return presupuestosRepository.buscarPresupuestos(cantidad_terreno);
 		return 0;
