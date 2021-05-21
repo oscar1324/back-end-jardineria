@@ -18,8 +18,9 @@ import java.util.List;
 @Repository
 public interface PresupuestosRepository extends CrudRepository<PresupuestosEntity, Integer>{
 	
-	@Query( value =" select new com.oscar.jardineria.dtos.PresupuestosDTO (p.idPresupuestos, u.username, p.cantidadTerreno, p.fechaPresupuesto, p.comentario, p.disabled, p.precio) "
+	@Query( value =" select new com.oscar.jardineria.dtos.PresupuestosDTO (p.idPresupuestos, u.username, p.cantidadTerreno, p.fechaPresupuesto, p.comentario, p.disabled, p.precio,ser.idServicios) "
 			+"FROM com.oscar.jardineria.entities.PresupuestosEntity p JOIN com.oscar.jardineria.entities.UserEntity u ON p.idPresupuestos = u.username "
+			+ "JOIN com.oscar.jardineria.entities.ServiciosEntity ser ON ser.idServicios = p.idPresupuestos "
 			+"WHERE (p.idPresupuestos LIKE CONCAT ('%', :idPresupuestos, '%') or :idPresupuestos is null) "
 			+"AND u.username LIKE CONCAT ('%', :username, '%') "
 			+"AND p.cantidadTerreno LIKE CONCAT ('%', :cantidadTerreno, '%') "
@@ -27,6 +28,7 @@ public interface PresupuestosRepository extends CrudRepository<PresupuestosEntit
 			+"AND p.comentario LIKE CONCAT ('%', :comentario, '%') "
 			+"AND p.disabled LIKE CONCAT ('%', :disabled, '%') "
 			+"AND p.precio LIKE CONCAT ('%', :precio, '%') "
+			+"AND ser.idServicios LIKE CONCAT ('%', :idServicios, '%') "
 			
 			)
 	List<PresupuestosDTO> buscarPresupuestos(@Param("idPresupuestos") Integer idPresupuestos,
@@ -35,7 +37,9 @@ public interface PresupuestosRepository extends CrudRepository<PresupuestosEntit
 											 @Param("fechaPresupuesto") String fechaPresupuesto,
 											 @Param("comentario") String comentario,
 											 @Param("disabled") Integer disabled,
-											 @Param("precio") Double precio);
+											 @Param("precio") Double precio,
+											 @Param("idServicios") Integer idServicios
+											 );
 
 	
 	//List<PresupuestosDTO> buscarCantidades(@Param("precio") Double precio);

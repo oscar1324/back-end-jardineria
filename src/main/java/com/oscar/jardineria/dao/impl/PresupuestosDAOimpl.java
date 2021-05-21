@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import com.oscar.jardineria.daos.PresupuestosDAO;
 import com.oscar.jardineria.dtos.PresupuestosDTO;
 import com.oscar.jardineria.entities.PresupuestosEntity;
+import com.oscar.jardineria.entities.ServiciosEntity;
 import com.oscar.jardineria.entities.UserEntity;
 import com.oscar.jardineria.repositorios.PresupuestosRepository;
+import com.oscar.jardineria.repositorios.ServiciosRepository;
 import com.oscar.jardineria.repositorios.UserRepository;
 
 @Service
@@ -21,21 +23,27 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 	@Autowired
 	private UserRepository usuarioRepository;
 	
+	@Autowired
+	private ServiciosRepository servicioRepository;
+	
 	@Override
 	public List<PresupuestosDTO> obtenerPresupuestos(Integer idPresupuestos, String username, Integer cantidadTerreno,
-			String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
+			String fechaPresupuesto, String comentario, Integer disabled, Double precio, Integer idServicios) {
 		
-		return presupuestosRepository.buscarPresupuestos(idPresupuestos, username, cantidadTerreno, fechaPresupuesto, comentario,disabled, precio);
+		return presupuestosRepository.buscarPresupuestos(idPresupuestos, username, cantidadTerreno, fechaPresupuesto, comentario,disabled, precio, idServicios);
 	}
 	
 	
 	@Override
 	public Integer insertarPresupuestos(Integer idPresupuestos, String username, Integer cantidadTerreno,
-			String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
+			String fechaPresupuesto, String comentario, Integer disabled, Double precio, Integer idServicios) {
 		Optional<UserEntity> u = usuarioRepository.findById(username);		
 		UserEntity usuario = u.get();
 		
-		PresupuestosEntity presupuesto = new PresupuestosEntity(idPresupuestos, usuario, cantidadTerreno, fechaPresupuesto, comentario,disabled,precio);
+		Optional<ServiciosEntity> ser = servicioRepository.findById(idServicios);		
+		ServiciosEntity servicios = ser.get();
+		
+		PresupuestosEntity presupuesto = new PresupuestosEntity(idPresupuestos, usuario, cantidadTerreno, fechaPresupuesto, servicios,comentario,disabled,precio);
 		presupuestosRepository.save(presupuesto);
 		return null;
 	}
@@ -43,12 +51,15 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 	// Revisión, no actualiza bien para cambiar disabled
 	@Override
 	public Integer actualizarPresupuestos(Integer idPresupuestos, String username, Integer cantidadTerreno,
-			String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
+			String fechaPresupuesto, String comentario, Integer disabled, Double precio, Integer idServicios) {
 		
 		Optional<UserEntity> u = usuarioRepository.findById(username);		
 		UserEntity usuario = u.get();
 		
-		PresupuestosEntity presupuesto = new PresupuestosEntity(idPresupuestos, usuario, cantidadTerreno, fechaPresupuesto, comentario,disabled,precio);
+		Optional<ServiciosEntity> ser = servicioRepository.findById(idServicios);		
+		ServiciosEntity servicios = ser.get();
+		
+		PresupuestosEntity presupuesto = new PresupuestosEntity(idPresupuestos, usuario, cantidadTerreno, fechaPresupuesto,servicios, comentario,disabled,precio);
 		presupuestosRepository.save(presupuesto);
 		return null;
 	}
@@ -73,7 +84,9 @@ public class PresupuestosDAOimpl implements PresupuestosDAO{
 		PresupuestosEntity presupuesto = presu.get(); 
 		return presupuesto.getPrecio();
 	}
-	
+
+
+
 
 
 

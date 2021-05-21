@@ -14,6 +14,7 @@ public class PresupuestosDTO {
 		public String comentario ;
 		public Integer disabled;
 		public Double precio;
+		public Integer idServicios;
 		
 		
 		public PresupuestosDTO() {
@@ -23,7 +24,7 @@ public class PresupuestosDTO {
 
 
 		public PresupuestosDTO(Integer idPresupuestos, String username, Integer cantidadTerreno,
-				String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
+				String fechaPresupuesto, String comentario, Integer disabled, Double precio, Integer idServicios) {
 			super();
 			this.idPresupuestos = idPresupuestos;
 			this.username = username;
@@ -32,6 +33,7 @@ public class PresupuestosDTO {
 			this.comentario = comentario;
 			this.disabled = disabled;
 			this.precio = precio;
+			this.idServicios = idServicios;
 		}
 
 
@@ -105,6 +107,17 @@ public class PresupuestosDTO {
 		}
 
 
+		public Integer getIdServicios() {
+			return idServicios;
+		}
+
+
+		public void setIdServicios(Integer idServicios) {
+			this.idServicios = idServicios;
+		}
+
+
+	
 	
 		
 }

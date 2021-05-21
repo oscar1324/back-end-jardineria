@@ -21,6 +21,7 @@ import com.oscar.jardineria.dtos.PresupuestoCalculadoDTO;
 import com.oscar.jardineria.dtos.PresupuestosDTO;
 import com.oscar.jardineria.dtos.SolicitudPresupuestoDTO;
 import com.oscar.jardineria.entities.PresupuestosEntity;
+import com.oscar.jardineria.entities.ServiciosEntity;
 import com.oscar.jardineria.entities.UserEntity;
 import com.oscar.jardineria.negocio.INegocio;
 import com.oscar.jardineria.repositorios.PresupuestosRepository;
@@ -49,17 +50,22 @@ public class PresupuestosController {
 				new UserEntity(presupuestos.getUsername(), null, null),
 				presupuestos.getCantidadTerreno(),
 				presupuestos.getFechaPresupuesto(),
+				new ServiciosEntity(presupuestos.getIdServicios(), null, null),
 				presupuestos.getComentario(),
 				presupuestos.getDisabled(),
-				presupuestos.getPrecio());
+				presupuestos.getPrecio()
+				
+				);
 		
 		presupuestosRepository.save(pe);
 		return new ResponseEntity<>("Inserción de prespuesto correcta", HttpStatus.OK);
 	}
+
+	
 	
 	@PostMapping(value ="/solicitudpresupuesto")
 	public double solicitudPrespuesto(@RequestBody SolicitudPresupuestoDTO solicitudPresupuesto) {
-		negocio.calcularPresupuesto(solicitudPresupuesto);
+		
 		return negocio.calcularPresupuesto(solicitudPresupuesto).getPresupuesto();
 	}
 	

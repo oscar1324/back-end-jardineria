@@ -33,7 +33,7 @@ public class NegocioImplementacion implements INegocio{
 		double precioTotal = presupuestosImpl.obtenerPrecio(precio);
 	
 		if((cantidad <= 50 )) {
-			precioTotal = cantidad * 0.05;
+			precioTotal = cantidad * 5.05;
 		} else if((cantidad >= 50) && (cantidad <= 150)) {
 			precioTotal  = cantidad * 0.10;
 			
@@ -53,12 +53,12 @@ public class NegocioImplementacion implements INegocio{
 		
 		double precioServicio = servicio.getPrecioMetro();
 		if(( solicitudPresupuesto.getTerreno() == 50 )) {
-			precioServicio = servicio.getPrecioMetro() * 0.95;
+			precioServicio = servicio.getPrecioMetro() * 3.95;
 		} else if((solicitudPresupuesto.getTerreno() >= 50) && (solicitudPresupuesto.getTerreno() <= 150)) {
-			precioServicio  = servicio.getPrecioMetro()  * 0.90;
+			precioServicio  = servicio.getPrecioMetro()  * 2.90;
 			
 		} else if((solicitudPresupuesto.getTerreno() >= 150) ){
-			precioServicio  = servicio.getPrecioMetro()  * 0.85;
+			precioServicio  = servicio.getPrecioMetro()  * 1.85;
 		}
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String hoy = df.format(new Date());
@@ -66,6 +66,7 @@ public class NegocioImplementacion implements INegocio{
 								new UserEntity(solicitudPresupuesto.getUser(), null, null),
 								solicitudPresupuesto.getTerreno(),
 								hoy,
+								new ServiciosEntity(solicitudPresupuesto.getServicio(), null, null),
 								solicitudPresupuesto.getComentario(),
 								1,precioServicio);
 		presupuestosRepository.save(p);

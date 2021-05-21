@@ -33,6 +33,11 @@ public class PresupuestosEntity {
 	@JoinColumn(name = "username") 
 	private UserEntity username;
 	
+	@ManyToOne(fetch = FetchType.EAGER) 
+	@JoinColumn(name = "id_servicios") 
+	private ServiciosEntity idServicios;
+	
+	
 	@Column(name = "cantidad_terreno")
 	private Integer cantidadTerreno;
 	
@@ -53,20 +58,33 @@ public class PresupuestosEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PresupuestosEntity(Integer idPresupuestos, UserEntity username, Integer cantidadTerreno,
-			String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
+	public PresupuestosEntity(Integer idPresupuestos, UserEntity username, ServiciosEntity idServicios,
+			Integer cantidadTerreno, String fechaPresupuesto, String comentario, Integer disabled, Double precio) {
 		super();
 		this.idPresupuestos = idPresupuestos;
 		this.username = username;
+		this.idServicios = idServicios;
 		this.cantidadTerreno = cantidadTerreno;
 		this.fechaPresupuesto = fechaPresupuesto;
 		this.comentario = comentario;
 		this.disabled = disabled;
 		this.precio = precio;
 	}
-	
 
-
+	public PresupuestosEntity(Integer idPresupuestos2, UserEntity usuario, Integer cantidadTerreno2,
+			String fechaPresupuesto2,ServiciosEntity servicios, String comentario2, Integer disabled2, Double precio2
+			) {
+		
+		this.idPresupuestos = idPresupuestos2;
+		this.username = usuario;
+		this.idServicios = servicios;
+		this.cantidadTerreno = cantidadTerreno2;
+		this.fechaPresupuesto = fechaPresupuesto2;
+		this.comentario = comentario2;
+		this.disabled = disabled2;
+		this.precio = precio2;
+		// TODO Auto-generated constructor stub
+	}
 
 	public Integer getIdPresupuestos() {
 		return idPresupuestos;
@@ -82,6 +100,14 @@ public class PresupuestosEntity {
 
 	public void setUsername(UserEntity username) {
 		this.username = username;
+	}
+
+	public ServiciosEntity getIdServicios() {
+		return idServicios;
+	}
+
+	public void setIdServicios(ServiciosEntity idServicios) {
+		this.idServicios = idServicios;
 	}
 
 	public Integer getCantidadTerreno() {
@@ -124,5 +150,6 @@ public class PresupuestosEntity {
 		this.precio = precio;
 	}
 
+	
 	
 }

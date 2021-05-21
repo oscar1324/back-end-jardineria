@@ -65,6 +65,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>jardinrobledo</finalName>
 	</build>
 
 </project>

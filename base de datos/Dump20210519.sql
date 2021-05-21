@@ -18,8 +18,7 @@
 --
 -- Table structure for table `detallepresupuesto`
 --
-CREATE DATABASE IF NOT EXISTS `jardinrobledo`
-USE `jardinrobledo`;
+
 DROP TABLE IF EXISTS `detallepresupuesto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -41,7 +40,6 @@ CREATE TABLE `detallepresupuesto` (
 
 LOCK TABLES `detallepresupuesto` WRITE;
 /*!40000 ALTER TABLE `detallepresupuesto` DISABLE KEYS */;
-INSERT INTO `detallepresupuesto` VALUES (1,1,1);
 /*!40000 ALTER TABLE `detallepresupuesto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,10 +58,13 @@ CREATE TABLE `presupuestos` (
   `username` varchar(45) DEFAULT NULL,
   `disabled` int DEFAULT NULL,
   `precio` double DEFAULT NULL,
+  `id_servicios` int DEFAULT NULL,
   PRIMARY KEY (`id_presupuestos`),
   KEY `user_FK_idx` (`username`),
+  KEY `id_servicios_fk_idx` (`id_servicios`),
+  CONSTRAINT `servicios_FK` FOREIGN KEY (`id_servicios`) REFERENCES `servicios` (`id_servicios`),
   CONSTRAINT `user_FK` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +73,7 @@ CREATE TABLE `presupuestos` (
 
 LOCK TABLES `presupuestos` WRITE;
 /*!40000 ALTER TABLE `presupuestos` DISABLE KEYS */;
-INSERT INTO `presupuestos` VALUES (1,500,'2021-05-16T20:20:21.648Z','ERERE','@Administrador',1,NULL),(5,500,'2021-05-13T21:06:34.328Z','Zonas arcillosas a trata.','@DonOmar',1,5),(10,200,'2021-05-15T07:38:21.096Z','Día soleado','@Usuario',1,45),(13,50,'2021-05-16T20:21:12.312Z','tttttttttttttttttttt','@Administrador',1,NULL),(14,500,'2021-05-16T20:23:09.226Z','232','@Zapatero',1,NULL),(15,50,'2021-05-17T08:31:15.929Z','Para la familia de bayern','@Lewandoski',1,NULL);
+INSERT INTO `presupuestos` VALUES (28,100,'2021-05-18','predopo','@Administrador',1,9,NULL),(31,200,'2021-05-19','Terreno muy arcilloso','@Ronney',1,8.5,NULL),(32,200,'2021-05-19','Terreno muy arcilloso','@Ronney',1,8.5,NULL),(33,50,'2021-05-19','Mucho cesped levantado','@Ronney',1,6.6499999999999995,NULL),(34,50,'2021-05-19','Mucho cesped levantado','@Ronney',1,6.6499999999999995,NULL),(35,500,'2021-05-19','Terreno con mucho lodo','@Ronney',1,8.5,NULL),(36,500,'2021-05-19','Terreno con mucho lodo','@Ronney',1,8.5,NULL),(37,200,'2021-05-19','Pinos y robles','@Lorena_34',1,5.1,NULL),(38,200,'2021-05-19','Pinos y robles','@Lorena_34',1,5.1,NULL),(39,100,'2021-05-19','eeee','@Lorena_34',1,5.4,NULL),(40,100,'2021-05-19','eeee','@Lorena_34',1,5.4,NULL),(41,50,'2021-05-19','Muchas acacias','@Lorena_34',1,5.699999999999999,NULL),(42,50,'2021-05-19','Muchas acacias','@Lorena_34',1,5.699999999999999,NULL),(43,100,'2021-05-19','Muchos bordes sin rematar','@RAUL',1,31.5,NULL),(44,100,'2021-05-19','Muchos bordes sin rematar','@RAUL',1,31.5,NULL),(45,500,'2021-05-19','Finca con poco trabajo','@RAUL',1,29.75,NULL),(46,500,'2021-05-19','Finca con poco trabajo','@RAUL',1,29.75,NULL),(47,100,'2021-05-19','Plantar flores de variedad','@RAUL',1,9,NULL),(48,100,'2021-05-19','Plantar flores de variedad','@RAUL',1,9,NULL),(49,100,'2021-05-19','A predominar los cerezos','@Sonia',1,9,NULL),(50,100,'2021-05-19','A predominar los cerezos','@Sonia',1,9,NULL);
 /*!40000 ALTER TABLE `presupuestos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +98,7 @@ CREATE TABLE `servicios` (
 
 LOCK TABLES `servicios` WRITE;
 /*!40000 ALTER TABLE `servicios` DISABLE KEYS */;
-INSERT INTO `servicios` VALUES (1,'Sistema de riego',5),(2,'Podas',6),(3,'Cesped artificial',13),(4,'mantenimiento de jardines',7),(5,'Desbrozar',35),(6,'Plantaciones',10);
+INSERT INTO `servicios` VALUES (1,'Sistema de riego',6),(2,'Podas',14),(3,'Cesped artificial',13),(4,'mantenimiento de jardines',7),(5,'Desbrozar',35),(6,'Plantaciones',10);
 /*!40000 ALTER TABLE `servicios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +123,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('@Administrador','yyy',1),('@Aprender','eeee',1),('@Carlos','33',1),('@Cervantes','Quevedo',1),('@Cristiano','23%&56',1),('@CristianoRonaldo','Giorgina',1),('@DonOmar','cantante334',1),('@Fariño_Gomez','we23rt45',1),('@KikeProfesor','Quevedo',1),('@Lewandoski','BayernM',1),('@manolitoGafotas','32333333',1),('@NuevoNombre','1212',1),('@Oscar_bichito','Macarrones',1),('@Pepe','23JOSE12',1),('@Pepita','222',1),('@Prueba','CHICHI',1),('@ROBBIE','eee',1),('@Roberto_firmino','Liverrpool',1),('@Roberto_Seronero','Realpepe',1),('@RubenIzq','333',1),('@titititit','errrrrrrr',1),('@TohanGomez','234/amorLOVE',1),('@Usuario','SinSal',1),('@Zapater','ZAPATO',1),('@Zapatero','23%&56',1),('@Zico','12345',1),('@Zidane','1212',1);
+INSERT INTO `users` VALUES ('@Administrador','wwwwwwwwwwwwwww',1),('@Aprender','eeee',1),('@Caballero','rere',1),('@Carlos','33',1),('@Carlota','1212',1),('@Carol','2323',1),('@Cervantes','Quevedo',1),('@Claudio_Bravo','1232',1),('@Cristiano','23%&56',1),('@CristianoRonaldo','Giorgina',1),('@DonOmar','cantante334',1),('@Fariño_Gomez','we23rt45',1),('@Guatemala','malomalo',1),('@Kikekike','1234',1),('@KikeProfesor','Quevedo',1),('@Lewandoski','BayernM',1),('@LLorena','1212',1),('@Lorena_34','23er34',1),('@Lozano','123qead',1),('@manolitoGafotas','32333333',1),('@NuevoNombre','1212',1),('@Oscar_bichito','Macarrones',1),('@Pepe','23JOSE12',1),('@Pepita','222',1),('@Prueba','CHICHI',1),('@RAUL','alberca',1),('@RebecaGomez','12345',1),('@REQUELE','23',1),('@ROBBIE','eee',1),('@Roberto_firmino','Liverrpool',1),('@Roberto_Seronero','Realpepe',1),('@Ronney','ee',1),('@RubenIzq','333',1),('@Sonia','qweasd123',1),('@TohanGomez','234/amorLOVE',1),('@Usuario','SinSal',1),('@Zapater','ZAPATO',1),('@Zapatero','23%&56',1),('@Zico','12345',1),('@Zidane','RealZaragoza',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -135,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-17 16:48:25
+-- Dump completed on 2021-05-19  9:19:07
